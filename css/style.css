@@ -8637,9 +8637,7 @@ h1, h2, h3, h4, h5,
     width: 100%;
     position: relative;
     z-index: 1;
-    background-size: contain;
-    background-position: center center;
-    background-repeat: no-repeat; }
+    padding-top: 150%; }
 
 .ftco-about ul.about-info {
   display: inline-block;
