@@ -8635,8 +8635,11 @@ h1, h2, h3, h4, h5,
   .ftco-about .img-about .img {
     display: block;
     width: 100%;
-    aspect-ratio: 3 / 4;
     background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    aspect-ratio: 3 / 4;
     position: relative;
     z-index: 1; }
 
