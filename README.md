@@ -37,3 +37,8 @@ git clone https://github.com/5tmdwns/5tmdwns.github.io.git
 cd 5tmdwns.github.io
 # index.html을 브라우저에서 바로 열거나 Live Server 등으로 실행
 ```
+
+## 라이선스
+
+이 포트폴리오는 [Colorlib](https://colorlib.com)의 템플릿을 기반으로 제작되었습니다.
+원본 템플릿은 [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/) 라이선스를 따르며, 저작자 표기가 유지되어야 합니다.
