@@ -1,0 +1,347 @@
+/* ============================================================
+   custom.css — 하늘색 선 테마 오버라이드
+   Primary: #4BAEE8 (sky blue)
+   ============================================================ */
+
+/* ---------- 전역 색상 변수 ---------- */
+:root {
+  --sky: #4BAEE8;
+  --sky-light: #EBF6FD;
+  --sky-dark: #2E96D4;
+}
+
+/* ---------- 링크 & 기본 강조색 ---------- */
+a {
+  color: var(--sky);
+}
+a:hover, a:focus {
+  color: var(--sky-dark);
+}
+
+.text-primary {
+  color: var(--sky) !important;
+}
+
+/* ---------- Navbar ---------- */
+.navbar-brand:after {
+  background: var(--sky);
+}
+
+.ftco-navbar-light .navbar-nav > .nav-item > .nav-link span:before {
+  background: var(--sky);
+}
+
+.ftco-navbar-light .navbar-nav > .nav-item .nav-link.active {
+  color: var(--sky);
+}
+
+.ftco-navbar-light .navbar-nav > .nav-item.cta > a,
+.ftco-navbar-light .navbar-nav > .nav-item.cta > a:hover {
+  background: var(--sky);
+  border-color: var(--sky) !important;
+}
+
+.ftco-navbar-light.scrolled .nav-item.active > a {
+  color: var(--sky) !important;
+}
+
+.ftco-navbar-light.scrolled .nav-item.cta > a {
+  background: var(--sky);
+}
+
+.ftco-navbar-light.scrolled .nav-link.active {
+  color: var(--sky) !important;
+}
+
+/* 모바일 navbar 배경 */
+@media (max-width: 991.98px) {
+  .ftco-navbar-light {
+    background: #fff !important;
+  }
+  .ftco-navbar-light .navbar-brand {
+    color: #000 !important;
+  }
+  .ftco-navbar-light .navbar-nav > .nav-item > .nav-link {
+    color: #000 !important;
+  }
+}
+
+/* ---------- Hero 섹션 ---------- */
+.hero-wrap {
+  background: #fff !important;
+}
+
+.hero-wrap .overlay {
+  background: var(--sky);
+  opacity: 0.05;
+}
+
+.slider-text .subheading {
+  color: var(--sky);
+}
+
+.slider-text h2 span {
+  color: var(--sky);
+}
+
+/* ---------- 마우스 스크롤 아이콘 ---------- */
+.mouse-icon:after {
+  background: var(--sky-light);
+}
+
+.mouse-wheel {
+  color: var(--sky);
+}
+
+/* ---------- 섹션 공통 제목 (레퍼런스 핵심 스타일) ----------
+   굵은 검정 텍스트 + 하늘색 가로선
+   ----------------------------------------------------------- */
+.page .heading {
+  color: #111111;
+  font-weight: 800;
+  border-bottom: 3px solid var(--sky);
+  padding-bottom: 12px;
+  margin-bottom: 36px;
+  display: inline-block;
+}
+
+.heading-section h2 {
+  position: relative;
+  padding-bottom: 18px;
+  color: #111111;
+}
+
+.heading-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--sky);
+  border-radius: 2px;
+}
+
+.heading-section.text-left h2::after {
+  left: 0;
+  transform: none;
+}
+
+/* About Me 제목도 동일하게 */
+.col-md-12.heading-section h2 {
+  position: relative;
+  padding-bottom: 18px;
+}
+.col-md-12.heading-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: var(--sky);
+  border-radius: 2px;
+}
+
+/* ---------- 이력(resume-wrap) 스타일 ---------- */
+.resume-wrap .icon {
+  background: var(--sky);
+}
+
+.resume-wrap .date {
+  color: var(--sky);
+}
+
+.resume-wrap {
+  border-bottom: 1px solid rgba(75, 174, 232, 0.2);
+}
+
+/* ---------- 사이드 네비 ---------- */
+#navi li a.current {
+  color: var(--sky);
+}
+
+#navi li a.current:after {
+  background: var(--sky);
+}
+
+/* ---------- About 카운터 숫자 ---------- */
+.ftco-about .counter-wrap .text p span.number {
+  color: var(--sky);
+}
+
+/* ---------- 버튼 ---------- */
+.btn.btn-primary {
+  background: var(--sky) !important;
+  border-color: var(--sky) !important;
+}
+
+.btn.btn-primary:hover {
+  background: var(--sky-dark) !important;
+  border-color: var(--sky-dark) !important;
+  color: #fff !important;
+}
+
+.btn.btn-primary.btn-outline-primary {
+  border-color: var(--sky) !important;
+  color: var(--sky) !important;
+  background: transparent !important;
+}
+
+.btn.btn-primary.btn-outline-primary:hover {
+  background: var(--sky) !important;
+  color: #fff !important;
+}
+
+.btn.btn-white.btn-outline-white:hover {
+  background: var(--sky);
+}
+
+.btn-outline-primary {
+  color: var(--sky) !important;
+  border-color: var(--sky) !important;
+}
+
+.btn-outline-primary:hover {
+  background: var(--sky) !important;
+  color: #fff !important;
+}
+
+/* ---------- bg-primary ---------- */
+.bg-primary {
+  background: var(--sky) !important;
+}
+
+/* ---------- Progress bar ---------- */
+.progress-bar {
+  background: var(--sky);
+}
+
+.progress-bar:after {
+  background: var(--sky);
+}
+
+/* ---------- Pulse 애니메이션 ---------- */
+@-webkit-keyframes pulse {
+  0%   { -webkit-box-shadow: 0 0 0 0 rgba(75, 174, 232, 0.4); }
+  70%  { -webkit-box-shadow: 0 0 0 30px rgba(75, 174, 232, 0); }
+  100% { -webkit-box-shadow: 0 0 0 0 rgba(75, 174, 232, 0); }
+}
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(75, 174, 232, 0.4); }
+  70%  { box-shadow: 0 0 0 30px rgba(75, 174, 232, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(75, 174, 232, 0); }
+}
+
+/* ---------- Services ---------- */
+.services-1 .icon i {
+  color: var(--sky);
+}
+
+.services-1 .desc h3:after {
+  background: var(--sky);
+}
+
+.services-1 .desc span {
+  color: var(--sky);
+}
+
+.services-1:hover {
+  background: var(--sky);
+}
+
+/* ---------- 카운터 텍스트 ---------- */
+.ftco-counter .text strong.number,
+.ftco-counter .ftco-number {
+  color: var(--sky);
+}
+
+/* ---------- Blog ---------- */
+.blog-entry .text .heading a:hover {
+  color: var(--sky);
+}
+
+.blog-entry .meta span,
+.blog-entry .meta a {
+  color: var(--sky);
+}
+
+/* ---------- 미디어 아이콘 ---------- */
+.media .ftco-icon span {
+  color: var(--sky);
+}
+
+/* ---------- 페이지네이션 ---------- */
+.block-27 ul li a,
+.block-27 ul li span {
+  color: var(--sky);
+}
+
+.block-27 ul li.active a,
+.block-27 ul li.active span {
+  background: var(--sky);
+}
+
+/* ---------- footer small nav ---------- */
+.footer-small-nav > li a:hover,
+.footer-small-nav > li a:focus {
+  color: var(--sky);
+}
+
+/* ---------- Contact 박스 아이콘 ---------- */
+.contact-section .box .icon {
+  background: var(--sky);
+}
+
+/* ---------- Hire Me 섹션 (배경 변경: 파랑 → 흰색 테두리 스타일) ---------- */
+.ftco-hireme {
+  background: #fff !important;
+  border-top: 3px solid var(--sky);
+  border-bottom: 3px solid var(--sky);
+}
+
+.ftco-hireme .overlay {
+  display: none;
+}
+
+.ftco-hireme h2 {
+  color: #111111 !important;
+}
+
+.ftco-hireme h2 span {
+  color: var(--sky) !important;
+}
+
+.ftco-hireme p {
+  color: #555 !important;
+}
+
+/* ---------- 푸터 ---------- */
+.ftco-footer {
+  background: #f7f9fc !important;
+  border-top: 3px solid var(--sky);
+}
+
+.ftco-footer p,
+.ftco-footer a {
+  color: #555 !important;
+}
+
+.ftco-footer a:hover {
+  color: var(--sky) !important;
+}
+
+.ftco-footer-social li a {
+  background: rgba(75, 174, 232, 0.12);
+}
+
+/* ---------- 로더 ---------- */
+#ftco-loader .path {
+  stroke: var(--sky);
+}
+
+/* ---------- 스킬 아이콘 박스 그림자 ---------- */
+.skills-icon-shadow {
+  box-shadow: 0 2px 8px rgba(75, 174, 232, 0.15) !important;
+}
