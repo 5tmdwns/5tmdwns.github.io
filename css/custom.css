@@ -609,6 +609,24 @@ img { max-width: 100%; }
 }
 
 
+/* ---------- Footer ---------- */
+.pf-footer {
+  background: #f0f4f8;
+  border-top: 3px solid var(--sky);
+  padding: 28px 0;
+  text-align: center;
+}
+
+.pf-footer p {
+  color: var(--gray);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.pf-footer a {
+  color: var(--sky);
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 991px) {
   .pf-nav-links { gap: 20px; }
