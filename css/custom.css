@@ -1271,7 +1271,8 @@ body.pf-page-exit {
 }
 
 .pf-work-overlay-text-btn {
-  padding: 5px 10px;
+  height: 32px;
+  padding: 0 12px;
   border: 1.5px solid rgba(255,255,255,0.8);
   border-radius: 20px;
   color: var(--white) !important;
