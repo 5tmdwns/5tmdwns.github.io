@@ -1229,26 +1229,28 @@ body.pf-page-exit {
 }
 
 .pf-work-overlay-actions {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: center;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
   gap: 8px;
   margin-top: 4px;
 }
 
 .pf-work-overlay-btn {
-  width: 34px;
-  height: 34px;
-  border: 2px solid rgba(255,255,255,0.8);
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  border: 1.5px solid rgba(255,255,255,0.8);
   border-radius: 50%;
-  display: flex;
+  display: inline-flex !important;
   align-items: center;
   justify-content: center;
   color: var(--white) !important;
   transition: background 0.2s;
   flex-shrink: 0;
   text-decoration: none !important;
+  overflow: hidden;
 }
 
 .pf-work-overlay-btn:hover {
@@ -1257,14 +1259,20 @@ body.pf-page-exit {
 }
 
 .pf-work-overlay-btn svg {
-  width: 14px;
-  height: 14px;
+  width: 14px !important;
+  height: 14px !important;
+  min-width: 14px;
+  max-width: 14px;
+  min-height: 14px;
+  max-height: 14px;
   fill: currentColor;
+  display: block;
+  flex-shrink: 0;
 }
 
 .pf-work-overlay-text-btn {
-  padding: 5px 11px;
-  border: 2px solid rgba(255,255,255,0.8);
+  padding: 5px 10px;
+  border: 1.5px solid rgba(255,255,255,0.8);
   border-radius: 20px;
   color: var(--white) !important;
   font-size: 0.65rem;
@@ -1273,6 +1281,9 @@ body.pf-page-exit {
   transition: background 0.2s;
   white-space: nowrap;
   flex-shrink: 0;
+  display: inline-flex !important;
+  align-items: center;
+  line-height: 1;
 }
 
 .pf-work-overlay-text-btn:hover {
@@ -1281,18 +1292,24 @@ body.pf-page-exit {
 }
 
 .pf-work-overlay-arrow {
-  width: 34px;
-  height: 34px;
-  border: 2px solid rgba(255,255,255,0.8);
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  border: 1.5px solid rgba(255,255,255,0.8);
   border-radius: 50%;
-  display: flex;
+  display: inline-flex !important;
   align-items: center;
   justify-content: center;
-  color: var(--white);
+  color: var(--white) !important;
   font-size: 1rem;
   flex-shrink: 0;
   cursor: pointer;
   text-decoration: none !important;
+  transition: background 0.2s;
+}
+
+.pf-work-overlay-arrow:hover {
+  background: rgba(255,255,255,0.25);
 }
 
 .pf-work-img-card { cursor: pointer; }
