@@ -974,7 +974,7 @@ body.pf-page-exit {
 .pf-page {
   min-height: calc(100vh - var(--nav-height));
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   padding: calc(var(--nav-height) + 40px) 0 60px;
 }
 
@@ -1127,76 +1127,127 @@ body.pf-page-exit {
 .pf-works-page { display: none; }
 .pf-works-page.active { display: block; }
 
-.pf-work-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background: var(--white);
-  border: 1px solid var(--border);
+/* Image-style work cards */
+.pf-work-img-card {
+  position: relative;
+  display: block;
   border-radius: 14px;
-  padding: 20px 18px;
-  min-height: 150px;
-  transition: all 0.25s ease;
-  color: var(--dark) !important;
+  overflow: hidden;
+  aspect-ratio: 4/3;
   text-decoration: none !important;
-  height: 100%;
+  color: var(--white) !important;
 }
 
-.pf-work-card:hover {
-  border-color: var(--sky);
-  box-shadow: 0 8px 28px rgba(75,174,232,0.14);
-  transform: translateY(-4px);
-  color: var(--dark) !important;
-}
-
-.pf-work-card-top {
+.pf-work-img-bg {
+  position: absolute;
+  inset: 0;
+  transition: transform 0.45s ease;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 10px;
+  align-items: flex-end;
+  justify-content: flex-end;
 }
 
-.pf-work-num {
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--sky);
-  letter-spacing: 1px;
+.pf-work-img-card:hover .pf-work-img-bg {
+  transform: scale(1.07);
+}
+
+.pf-work-img-num {
+  font-size: 6rem;
+  font-weight: 800;
+  color: rgba(255,255,255,0.13);
+  line-height: 1;
+  padding: 0 10px 0 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+.pf-work-img-bottom {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 28px 14px 12px;
+  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
+  z-index: 1;
+  transition: opacity 0.3s;
+}
+
+.pf-work-img-card:hover .pf-work-img-bottom {
+  opacity: 0;
 }
 
 .pf-work-tag {
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   font-weight: 600;
-  color: var(--sky);
-  background: var(--sky-light);
+  color: rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.2);
   padding: 2px 8px;
   border-radius: 20px;
   white-space: nowrap;
-}
-
-.pf-work-tag-patent {
-  color: #e67e22;
-  background: rgba(230,126,34,0.1);
+  display: inline-block;
+  margin-bottom: 4px;
+  backdrop-filter: blur(4px);
 }
 
 .pf-work-title {
-  font-size: 0.82rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  color: var(--dark);
-  line-height: 1.5;
-  flex: 1;
-}
-
-.pf-work-date {
-  font-size: 0.7rem;
-  color: var(--gray);
-  margin-top: 10px;
+  color: var(--white);
+  line-height: 1.4;
+  margin: 0;
   display: block;
 }
 
-.pf-work-card-patent {
-  border-color: rgba(230,126,34,0.3);
-  background: rgba(230,126,34,0.03);
+.pf-work-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(75, 174, 232, 0.93);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: 2;
+  text-align: center;
 }
+
+.pf-work-img-card:hover .pf-work-overlay {
+  opacity: 1;
+}
+
+.pf-work-overlay-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+.pf-work-overlay-date {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 14px;
+}
+
+.pf-work-overlay-arrow {
+  width: 34px;
+  height: 34px;
+  border: 2px solid rgba(255,255,255,0.8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* Card color variants */
+.pf-work-c1 .pf-work-img-bg { background: linear-gradient(135deg, #1a5f8a 0%, #4BAEE8 100%); }
+.pf-work-c2 .pf-work-img-bg { background: linear-gradient(135deg, #0e3d5c 0%, #2E96D4 100%); }
+.pf-work-c3 .pf-work-img-bg { background: linear-gradient(135deg, #163d6b 0%, #3a7fbf 100%); }
+.pf-work-patent .pf-work-img-bg { background: linear-gradient(135deg, #7a3f10 0%, #e67e22 100%); }
+.pf-work-patent .pf-work-overlay { background: rgba(230, 126, 34, 0.93); }
 
 /* Works page responsive */
 @media (max-width: 991px) {
