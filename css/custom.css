@@ -1230,6 +1230,8 @@ body.pf-page-exit {
 
 .pf-work-overlay-actions {
   display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   align-items: center;
   gap: 8px;
   margin-top: 4px;
@@ -1260,6 +1262,24 @@ body.pf-page-exit {
   fill: currentColor;
 }
 
+.pf-work-overlay-text-btn {
+  padding: 5px 11px;
+  border: 2px solid rgba(255,255,255,0.8);
+  border-radius: 20px;
+  color: var(--white) !important;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-decoration: none !important;
+  transition: background 0.2s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.pf-work-overlay-text-btn:hover {
+  background: rgba(255,255,255,0.25);
+  color: var(--white) !important;
+}
+
 .pf-work-overlay-arrow {
   width: 34px;
   height: 34px;
@@ -1272,6 +1292,7 @@ body.pf-page-exit {
   font-size: 1rem;
   flex-shrink: 0;
   cursor: pointer;
+  text-decoration: none !important;
 }
 
 .pf-work-img-card { cursor: pointer; }
