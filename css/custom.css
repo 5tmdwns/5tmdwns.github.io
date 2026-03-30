@@ -1099,6 +1099,8 @@ body.pf-page-exit {
   display: flex;
   gap: 8px;
   align-items: center;
+  justify-content: center;
+  margin-top: 24px;
 }
 
 .pf-works-dot {
@@ -1133,7 +1135,7 @@ body.pf-page-exit {
   display: block;
   border-radius: 14px;
   overflow: hidden;
-  aspect-ratio: 4/3;
+  aspect-ratio: 16/9;
   text-decoration: none !important;
   color: var(--white) !important;
 }
