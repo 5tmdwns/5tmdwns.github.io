@@ -102,6 +102,10 @@
       document.getElementById('detail-title').textContent = project.title;
     }
 
+    window.addEventListener('pageshow', function() {
+      document.body.classList.remove('pf-page-exit');
+    });
+
     // Page transition
     function navigateTo(url) {
       document.body.classList.add('pf-page-exit');

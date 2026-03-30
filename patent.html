@@ -77,6 +77,10 @@
       document.getElementById('pf-nav-links').classList.toggle('open');
     });
 
+    window.addEventListener('pageshow', function() {
+      document.body.classList.remove('pf-page-exit');
+    });
+
     function navigateTo(url) {
       document.body.classList.add('pf-page-exit');
       setTimeout(function() { window.location.href = url; }, 350);
