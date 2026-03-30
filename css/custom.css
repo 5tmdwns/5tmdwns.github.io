@@ -893,8 +893,8 @@ body {
 }
 
 @keyframes pf-page-enter {
-  from { opacity: 0; transform: translateY(14px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 body.pf-page-exit {
@@ -902,8 +902,8 @@ body.pf-page-exit {
 }
 
 @keyframes pf-page-exit {
-  from { opacity: 1; transform: translateY(0); }
-  to   { opacity: 0; transform: translateY(-14px); }
+  from { opacity: 1; }
+  to   { opacity: 0; }
 }
 
 /* ---------- Full-height page wrapper ---------- */
