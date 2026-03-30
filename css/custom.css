@@ -1228,6 +1228,38 @@ body.pf-page-exit {
   margin-bottom: 14px;
 }
 
+.pf-work-overlay-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.pf-work-overlay-btn {
+  width: 34px;
+  height: 34px;
+  border: 2px solid rgba(255,255,255,0.8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white) !important;
+  transition: background 0.2s;
+  flex-shrink: 0;
+  text-decoration: none !important;
+}
+
+.pf-work-overlay-btn:hover {
+  background: rgba(255,255,255,0.25);
+  color: var(--white) !important;
+}
+
+.pf-work-overlay-btn svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
 .pf-work-overlay-arrow {
   width: 34px;
   height: 34px;
@@ -1239,7 +1271,10 @@ body.pf-page-exit {
   color: var(--white);
   font-size: 1rem;
   flex-shrink: 0;
+  cursor: pointer;
 }
+
+.pf-work-img-card { cursor: pointer; }
 
 /* Card color variants */
 .pf-work-c1 .pf-work-img-bg { background: linear-gradient(135deg, #1a5f8a 0%, #4BAEE8 100%); }
