@@ -1060,28 +1060,20 @@ body.pf-page-exit {
 /* ---------- Works / Portfolio Page ---------- */
 .pf-works-section {
   min-height: 100vh;
-  display: flex;
-  align-items: center;
   padding: calc(var(--nav-height) + 40px) 0 60px;
 }
 
-.pf-works-inner {
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 40px;
-  display: flex;
-  align-items: center;
-  gap: 60px;
+.pf-works-container {
+  padding-left: 5% !important;
+  padding-right: 5% !important;
+}
+
+.pf-works-row {
+  min-height: calc(100vh - var(--nav-height) - 100px);
 }
 
 .pf-works-text-col {
-  flex: 0 0 320px;
-}
-
-.pf-works-grid-col {
-  flex: 1;
-  min-width: 0;
+  padding-right: 40px !important;
 }
 
 .pf-works-heading {
@@ -1258,17 +1250,14 @@ body.pf-page-exit {
 
 /* Works page responsive */
 @media (max-width: 991px) {
-  .pf-works-inner {
-    flex-direction: column;
-    gap: 32px;
-    padding: 0 24px;
-  }
   .pf-works-text-col {
-    flex: none;
-    width: 100%;
+    padding-right: 15px !important;
+    margin-bottom: 32px;
     text-align: center;
   }
-  .pf-works-grid-col { width: 100%; }
+  .pf-works-row {
+    min-height: auto;
+  }
 }
 
 @media (max-width: 575px) {
