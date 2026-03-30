@@ -51,9 +51,8 @@
         <!-- 오른쪽: 그리드 + 페이지네이션 (최신순) -->
         <div class="col-lg-8" data-aos="fade-left" data-aos-delay="100">
 
-          <!-- Page 1: 15→07 (최신순) -->
-          <div class="pf-works-page active" data-page="0">
-            <div class="pf-works-grid">
+          <!-- 카드 목록 (JS가 9개씩 자동 페이징) -->
+          <div class="pf-works-grid" id="pf-all-cards">
 
               <!-- 15. Patent -->
               <div class="pf-work-img-card pf-work-patent" data-href="portfolio-details.html?id=15">
@@ -235,12 +234,6 @@
                 </div>
               </div>
 
-            </div>
-          </div>
-
-          <!-- Page 2: 06→01 (최신순) -->
-          <div class="pf-works-page" data-page="1">
-            <div class="pf-works-grid">
 
               <!-- 06. AIoT -->
               <div class="pf-work-img-card pf-work-c1" data-href="portfolio-details.html?id=6">
@@ -362,14 +355,10 @@
                 </div>
               </div>
 
-            </div>
           </div>
 
-          <!-- 페이지네이션 -->
-          <div class="pf-works-pagination">
-            <button class="pf-works-dot active" data-page="0" aria-label="Page 1"></button>
-            <button class="pf-works-dot" data-page="1" aria-label="Page 2"></button>
-          </div>
+          <!-- 페이지네이션 (JS 자동 생성) -->
+          <div class="pf-works-pagination" id="pf-pagination"></div>
 
         </div><!-- /col-lg-8 -->
       </div><!-- /row -->
@@ -400,23 +389,38 @@
       document.getElementById('pf-nav-links').classList.toggle('open');
     });
 
+    // 자동 페이지네이션 (9개씩)
+    var CARDS_PER_PAGE = 9;
+    var cards = Array.from(document.querySelectorAll('#pf-all-cards .pf-work-img-card'));
+    var totalPages = Math.ceil(cards.length / CARDS_PER_PAGE);
+    var pagination = document.getElementById('pf-pagination');
+
+    function showPage(page) {
+      cards.forEach(function(card, i) {
+        card.style.display = (i >= page * CARDS_PER_PAGE && i < (page + 1) * CARDS_PER_PAGE) ? '' : 'none';
+      });
+      pagination.querySelectorAll('.pf-works-dot').forEach(function(dot, i) {
+        dot.classList.toggle('active', i === page);
+      });
+    }
+
+    for (var p = 0; p < totalPages; p++) {
+      (function(pg) {
+        var dot = document.createElement('button');
+        dot.className = 'pf-works-dot' + (pg === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Page ' + (pg + 1));
+        dot.addEventListener('click', function() { showPage(pg); });
+        pagination.appendChild(dot);
+      })(p);
+    }
+    showPage(0);
+
     // → 버튼 클릭 시에만 상세 페이지 이동
     document.querySelectorAll('.pf-work-overlay-arrow').forEach(function(arrow) {
       arrow.addEventListener('click', function(e) {
         e.stopPropagation();
         var card = this.closest('[data-href]');
         if (card) navigateTo(card.dataset.href);
-      });
-    });
-
-    // 페이지네이션
-    document.querySelectorAll('.pf-works-dot').forEach(function(dot) {
-      dot.addEventListener('click', function() {
-        var page = this.dataset.page;
-        document.querySelectorAll('.pf-works-dot').forEach(function(d) { d.classList.remove('active'); });
-        document.querySelectorAll('.pf-works-page').forEach(function(p) { p.classList.remove('active'); });
-        this.classList.add('active');
-        document.querySelector('.pf-works-page[data-page="' + page + '"]').classList.add('active');
       });
     });
 
