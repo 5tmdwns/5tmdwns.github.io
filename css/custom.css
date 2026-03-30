@@ -1062,19 +1062,30 @@ body.pf-page-exit {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: calc(var(--nav-height) + 32px) 0 60px;
+  padding: calc(var(--nav-height) + 40px) 0 60px;
 }
 
-.pf-works-row {
+.pf-works-inner {
   width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  gap: 60px;
 }
 
 .pf-works-text-col {
-  padding-right: 48px;
+  flex: 0 0 320px;
+}
+
+.pf-works-grid-col {
+  flex: 1;
+  min-width: 0;
 }
 
 .pf-works-heading {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2rem, 3.5vw, 3rem);
   font-weight: 800;
   line-height: 1.15;
   color: var(--dark);
@@ -1084,13 +1095,16 @@ body.pf-page-exit {
 .pf-works-heading span { color: var(--sky); }
 
 .pf-works-desc {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--gray);
   line-height: 1.8;
-  max-width: 380px;
 }
 
-.pf-works-grid-col { }
+.pf-works-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
 
 .pf-works-pagination {
   display: flex;
@@ -1244,16 +1258,24 @@ body.pf-page-exit {
 
 /* Works page responsive */
 @media (max-width: 991px) {
-  .pf-works-section {
-    padding-top: calc(var(--nav-height) + 24px);
-    padding-bottom: 48px;
+  .pf-works-inner {
+    flex-direction: column;
+    gap: 32px;
+    padding: 0 24px;
   }
   .pf-works-text-col {
-    padding-right: 0;
-    margin-bottom: 32px;
+    flex: none;
+    width: 100%;
     text-align: center;
   }
-  .pf-works-desc { max-width: 100%; }
+  .pf-works-grid-col { width: 100%; }
+}
+
+@media (max-width: 575px) {
+  .pf-works-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
 }
 
 /* ---------- Portfolio Detail Page ---------- */
