@@ -1174,7 +1174,7 @@ body.pf-page-exit {
 }
 
 .pf-work-tag {
-  font-size: 0.62rem;
+  font-size: 0.7rem;
   font-weight: 600;
   color: rgba(255,255,255,0.9);
   background: rgba(255,255,255,0.2);
@@ -1187,7 +1187,7 @@ body.pf-page-exit {
 }
 
 .pf-work-title {
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   font-weight: 600;
   color: var(--white);
   line-height: 1.4;
