@@ -1327,7 +1327,10 @@ body.pf-page-exit {
   background: rgba(255,255,255,0.25);
 }
 
-.pf-work-img-card { cursor: pointer; }
+.pf-work-img-card { cursor: default; }
+.pf-work-overlay-btn,
+.pf-work-overlay-text-btn,
+.pf-work-overlay-arrow { cursor: pointer; }
 
 /* Card color variants */
 .pf-work-c1 .pf-work-img-bg { background: linear-gradient(135deg, #1a5f8a 0%, #4BAEE8 100%); }
