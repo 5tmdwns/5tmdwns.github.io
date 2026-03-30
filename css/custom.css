@@ -594,13 +594,13 @@ img { max-width: 100%; }
   flex-direction: column;
   align-items: center;
   gap: 6px;
-  min-width: 68px;
+  min-width: 90px;
   flex-shrink: 0;
 }
 
 .pf-skill-card.pf-skill-card-wide img {
-  width: 40px !important;
-  height: 40px !important;
+  width: 56px !important;
+  height: 56px !important;
   margin: 0 !important;
   display: block !important;
   flex-shrink: 0;
@@ -621,10 +621,7 @@ img { max-width: 100%; }
 }
 
 .pf-skill-card-divider {
-  width: 1px;
-  align-self: stretch;
-  background: var(--border);
-  flex-shrink: 0;
+  display: none;
 }
 
 .pf-skill-card-right {
