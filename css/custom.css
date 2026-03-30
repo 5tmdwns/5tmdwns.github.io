@@ -575,14 +575,18 @@ img { max-width: 100%; }
 }
 
 /* Wide card: icon+name left, tool list right */
-.pf-skill-card-wide {
-  grid-column: 1 / -1;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+.pf-skill-card.pf-skill-card-wide {
+  grid-column: 1 / -1 !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
   gap: 16px;
-  padding: 14px 18px;
-  text-align: left;
+  padding: 14px 18px !important;
+  text-align: left !important;
+}
+
+.pf-skill-card.pf-skill-card-wide:hover {
+  transform: translateY(-2px);
 }
 
 .pf-skill-card-left {
@@ -590,14 +594,15 @@ img { max-width: 100%; }
   flex-direction: column;
   align-items: center;
   gap: 6px;
-  min-width: 64px;
+  min-width: 68px;
   flex-shrink: 0;
 }
 
-.pf-skill-card-wide img {
-  width: 40px;
-  height: 40px;
-  margin: 0;
+.pf-skill-card.pf-skill-card-wide img {
+  width: 40px !important;
+  height: 40px !important;
+  margin: 0 !important;
+  display: block !important;
   flex-shrink: 0;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   border-radius: 8px;
@@ -607,11 +612,12 @@ img { max-width: 100%; }
 }
 
 .pf-skill-card-left .pf-skill-name {
-  font-size: 0.72rem;
+  font-size: 0.72rem !important;
   font-weight: 700;
   color: var(--dark);
   text-align: center;
   line-height: 1.3;
+  display: block !important;
 }
 
 .pf-skill-card-divider {
@@ -624,13 +630,15 @@ img { max-width: 100%; }
 .pf-skill-card-right {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 4px;
+  flex: 1;
 }
 
 .pf-skill-card-right span {
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   color: var(--gray);
   line-height: 1.5;
+  display: block;
 }
 
 /* ---------- Patent ---------- */
