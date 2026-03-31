@@ -1530,37 +1530,12 @@ body.pf-page-exit {
 @media print {
   .pd-page-layout {
     min-height: unset !important;
-    height: 150mm;
+    height: calc(297mm - 24mm);
     page-break-inside: avoid;
-    display: grid !important;
-    grid-template-rows: auto 1fr auto !important;
-    border: none !important;
-    gap: 0.5pt !important;
-    background: #ccc !important;
   }
-  .pd-row-top {
-    grid-template-columns: 2fr 1fr 2fr !important;
-    padding: 6pt 8pt !important;
-    background: #fff !important;
-    gap: 12pt !important;
-  }
-  .pd-row-mid {
-    padding: 6pt 8pt !important;
-    background: #fff !important;
-    overflow: hidden !important;
-  }
-  .pd-row-bot {
-    padding: 6pt 8pt !important;
-    background: #fff !important;
-    gap: 12pt !important;
-  }
-  .pd-row-mid img {
-    max-height: 72mm !important;
-    object-fit: contain !important;
-  }
-  .pd-row-top .pd-section,
-  .pd-row-mid .pd-section,
-  .pd-row-bot .pd-section { margin-bottom: 0 !important; }
+  .pd-row-top,
+  .pd-row-mid,
+  .pd-row-bot { padding: 8pt 10pt !important; background: #fff !important; }
 }
 
 /* ---------- A4 가로 4분면 레이아웃 ---------- */
