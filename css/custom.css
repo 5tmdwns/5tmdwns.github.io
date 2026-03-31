@@ -1715,13 +1715,13 @@ body.pf-page-exit {
   /* 이미지 기본 */
   img { height: auto !important; max-width: 100% !important; object-fit: contain !important; display: block !important; }
   .pd-photo-grid { display: grid !important; grid-template-columns: repeat(3,1fr) !important; gap: 2pt !important; }
-  .pd-photo-grid img { max-height: 18mm !important; width: 100% !important; }
-  .pd-mid-cell img { max-height: 34mm !important; width: 100% !important; }
-  .pd-row-bot img { max-height: 24mm !important; width: 100% !important; }
+  .pd-photo-grid img { max-height: 15mm !important; width: 100% !important; }
+  .pd-mid-cell img { max-height: 29mm !important; width: 100% !important; }
+  .pd-row-bot img { max-height: 20mm !important; width: 100% !important; }
 
   /* 이미지+문구 나란히 */
   .pd-mid-cell .pd-img-text-row { display: flex !important; flex-direction: row !important; align-items: center !important; gap: 4pt !important; flex-wrap: nowrap !important; }
-  .pd-mid-cell .pd-img-text-row img.pd-img-fixed { width: 36% !important; max-width: 36% !important; flex-shrink: 0 !important; max-height: 28mm !important; }
+  .pd-mid-cell .pd-img-text-row img.pd-img-fixed { width: 36% !important; max-width: 36% !important; flex-shrink: 0 !important; max-height: 24mm !important; }
   .pd-mid-cell .pd-img-text-row ul { flex: 1 !important; font-size: 6pt !important; color: #555 !important; padding-left: 8pt !important; margin: 0 !important; line-height: 1.4 !important; }
   .pd-mid-cell .pd-img-text-row li { margin-bottom: 1pt !important; }
 
