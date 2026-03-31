@@ -1374,7 +1374,7 @@ body.pf-page-exit {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  background: #d0d4da;
+  background: var(--white);
 }
 
 .pf-detail-page:has(.pd-page-layout) .container {
