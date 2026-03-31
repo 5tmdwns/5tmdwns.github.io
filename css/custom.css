@@ -1676,9 +1676,9 @@ body.pf-page-exit {
 }
 
 /* ---------- Print ---------- */
-@media print {
-  @page { size: A4 landscape; margin: 10mm 14mm; }
+@page { size: A4 landscape; margin: 10mm 14mm; }
 
+@media print {
   /* UI 숨기기 */
   .pf-nav,
   .pf-sidenav,
