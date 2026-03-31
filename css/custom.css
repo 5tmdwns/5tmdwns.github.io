@@ -1400,7 +1400,127 @@ body.pf-page-exit {
   min-height: 60vh;
 }
 
+/* ---------- Portfolio Detail — Content Body ---------- */
+.pd-print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--sky);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  margin-bottom: 36px;
+  transition: background 0.2s;
+}
+.pd-print-btn:hover { background: var(--sky-dark); }
+
+.pd-body {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.pd-section {
+  margin-bottom: 28px;
+}
+
+.pd-section-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--sky);
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+
+.pd-section p {
+  font-size: 0.9rem;
+  color: var(--gray);
+  margin: 0;
+  line-height: 1.75;
+}
+
+.pd-section ul {
+  font-size: 0.9rem;
+  color: var(--gray);
+  margin: 0;
+  padding-left: 18px;
+}
+
+.pd-section li { margin-bottom: 5px; }
+
+.pd-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.pd-tag {
+  display: inline-block;
+  background: var(--sky-light);
+  color: var(--sky-dark);
+  font-size: 0.73rem;
+  font-weight: 600;
+  padding: 3px 11px;
+  border-radius: 20px;
+  border: 1px solid rgba(75,174,232,0.25);
+}
+
+.pd-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--sky);
+  margin-bottom: 6px;
+}
+.pd-link:hover { color: var(--sky-dark); }
+
+/* ---------- Print (A4 가로) ---------- */
 @media print {
-  .pf-detail-back { display: none !important; }
-  .pf-detail-page { padding-top: 20pt; }
+  @page { size: A4 landscape; margin: 12mm 18mm; }
+
+  /* 웹 UI 숨기기 */
+  .pf-nav,
+  .pf-sidenav,
+  .pf-detail-back,
+  .pd-print-btn { display: none !important; }
+
+  /* 레이아웃 리셋 */
+  body { background: #fff !important; font-size: 10pt; }
+  .pf-detail-page { padding: 0 !important; min-height: unset !important; }
+  .container { max-width: 100% !important; padding: 0 !important; }
+
+  /* 헤더 */
+  .pf-detail-header { margin-bottom: 14pt; }
+  .pf-detail-title { font-size: 17pt !important; margin-bottom: 10pt !important; }
+  .pf-detail-line { height: 2pt !important; }
+
+  /* 2단 콘텐츠 */
+  .pd-body {
+    display: grid !important;
+    grid-template-columns: 2fr 1fr !important;
+    gap: 22pt !important;
+    align-items: start !important;
+  }
+
+  .pd-section { margin-bottom: 12pt !important; break-inside: avoid; }
+  .pd-section-title { font-size: 7pt !important; margin-bottom: 4pt !important; padding-bottom: 3pt !important; }
+  .pd-section p,
+  .pd-section ul { font-size: 9pt !important; line-height: 1.6 !important; }
+
+  /* 색상 강제 출력 */
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  .pd-tag { background: rgba(75,174,232,0.08) !important; border: 1pt solid rgba(75,174,232,0.3) !important; }
+  .pf-detail-line { background: #4BAEE8 !important; }
+  .pd-section-title { color: #4BAEE8 !important; }
 }

@@ -39,15 +39,693 @@
   <!-- DETAIL PAGE -->
   <div class="pf-detail-page">
     <div class="container">
+
+      <!-- 헤더 -->
       <div class="pf-detail-header">
         <a href="portfolio.html" class="pf-detail-back pf-nav-item">&#8592; Works</a>
         <h1 class="pf-detail-title" id="detail-title"></h1>
         <div class="pf-detail-line"></div>
       </div>
-      <div class="pf-detail-content" id="detail-content">
-      </div>
-    </div>
-  </div>
+
+      <!-- PDF 저장 버튼 -->
+      <button class="pd-print-btn" onclick="window.print()">
+        &#x2193; PDF로 저장
+      </button>
+
+      <!-- =====================================================================
+           콘텐츠 섹션
+           각 .pd-project 블록을 찾아 해당 프로젝트 ID에 맞는 내용을 채워넣으세요.
+           JS가 URL의 ?id= 값을 읽어 해당 블록만 보여줍니다.
+      ====================================================================== -->
+      <div id="pd-sections">
+
+
+        <!-- ===== PROJECT 1: 웹/파이썬 프로그래밍 텀 프로젝트 ===== -->
+        <div class="pd-project" data-id="1">
+          <div class="pd-body">
+
+            <div class="pd-left">
+              <section class="pd-section">
+                <h2 class="pd-section-title">개요</h2>
+                <p><!-- 프로젝트를 한두 문장으로 소개하세요. --></p>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">주요 내용</h2>
+                <ul>
+                  <li><!-- 핵심 작업 1 --></li>
+                  <li><!-- 핵심 작업 2 --></li>
+                  <li><!-- 핵심 작업 3 --></li>
+                </ul>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">결과 / 성과</h2>
+                <p><!-- 최종 결과나 배운 점을 작성하세요. --></p>
+              </section>
+            </div>
+
+            <div class="pd-right">
+              <section class="pd-section">
+                <h2 class="pd-section-title">사용 기술</h2>
+                <div class="pd-tags">
+                  <!-- <span class="pd-tag">Python</span> -->
+                  <!-- <span class="pd-tag">HTML/CSS</span> -->
+                </div>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">담당 역할</h2>
+                <p><!-- 팀 프로젝트라면 본인 역할, 개인이라면 생략 가능 --></p>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">링크</h2>
+                <!-- <a href="https://github.com/5tmdwns/..." class="pd-link" target="_blank">GitHub ↗</a> -->
+              </section>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- ===== PROJECT 2: Adventure Design 프로젝트 ===== -->
+        <div class="pd-project" data-id="2">
+          <div class="pd-body">
+
+            <div class="pd-left">
+              <section class="pd-section">
+                <h2 class="pd-section-title">개요</h2>
+                <p><!-- 프로젝트를 한두 문장으로 소개하세요. --></p>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">주요 내용</h2>
+                <ul>
+                  <li><!-- 핵심 작업 1 --></li>
+                  <li><!-- 핵심 작업 2 --></li>
+                  <li><!-- 핵심 작업 3 --></li>
+                </ul>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">결과 / 성과</h2>
+                <p><!-- 최종 결과나 배운 점을 작성하세요. --></p>
+              </section>
+            </div>
+
+            <div class="pd-right">
+              <section class="pd-section">
+                <h2 class="pd-section-title">사용 기술</h2>
+                <div class="pd-tags">
+                  <!-- <span class="pd-tag">기술명</span> -->
+                </div>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">담당 역할</h2>
+                <p><!-- 역할 --></p>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">링크</h2>
+                <!-- <a href="https://github.com/5tmdwns/..." class="pd-link" target="_blank">GitHub ↗</a> -->
+              </section>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- ===== PROJECT 3: 디지털회로설계및언어 프로젝트 1 ===== -->
+        <div class="pd-project" data-id="3">
+          <div class="pd-body">
+
+            <div class="pd-left">
+              <section class="pd-section">
+                <h2 class="pd-section-title">개요</h2>
+                <p><!-- 프로젝트를 한두 문장으로 소개하세요. --></p>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">주요 내용</h2>
+                <ul>
+                  <li><!-- 핵심 작업 1 --></li>
+                  <li><!-- 핵심 작업 2 --></li>
+                  <li><!-- 핵심 작업 3 --></li>
+                </ul>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">결과 / 성과</h2>
+                <p><!-- 최종 결과나 배운 점을 작성하세요. --></p>
+              </section>
+            </div>
+
+            <div class="pd-right">
+              <section class="pd-section">
+                <h2 class="pd-section-title">사용 기술</h2>
+                <div class="pd-tags">
+                  <!-- <span class="pd-tag">Verilog</span> -->
+                </div>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">담당 역할</h2>
+                <p><!-- 역할 --></p>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">링크</h2>
+                <!-- <a href="https://github.com/5tmdwns/..." class="pd-link" target="_blank">GitHub ↗</a> -->
+              </section>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- ===== PROJECT 4: 디지털회로설계및언어 프로젝트 2 ===== -->
+        <div class="pd-project" data-id="4">
+          <div class="pd-body">
+
+            <div class="pd-left">
+              <section class="pd-section">
+                <h2 class="pd-section-title">개요</h2>
+                <p><!-- 프로젝트를 한두 문장으로 소개하세요. --></p>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">주요 내용</h2>
+                <ul>
+                  <li><!-- 핵심 작업 1 --></li>
+                  <li><!-- 핵심 작업 2 --></li>
+                  <li><!-- 핵심 작업 3 --></li>
+                </ul>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">결과 / 성과</h2>
+                <p><!-- 최종 결과나 배운 점을 작성하세요. --></p>
+              </section>
+            </div>
+
+            <div class="pd-right">
+              <section class="pd-section">
+                <h2 class="pd-section-title">사용 기술</h2>
+                <div class="pd-tags">
+                  <!-- <span class="pd-tag">기술명</span> -->
+                </div>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">담당 역할</h2>
+                <p><!-- 역할 --></p>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">링크</h2>
+                <!-- <a href="https://github.com/5tmdwns/..." class="pd-link" target="_blank">GitHub ↗</a> -->
+              </section>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- ===== PROJECT 5: 디지털회로설계및언어 프로젝트 3 ===== -->
+        <div class="pd-project" data-id="5">
+          <div class="pd-body">
+
+            <div class="pd-left">
+              <section class="pd-section">
+                <h2 class="pd-section-title">개요</h2>
+                <p><!-- 프로젝트를 한두 문장으로 소개하세요. --></p>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">주요 내용</h2>
+                <ul>
+                  <li><!-- 핵심 작업 1 --></li>
+                  <li><!-- 핵심 작업 2 --></li>
+                  <li><!-- 핵심 작업 3 --></li>
+                </ul>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">결과 / 성과</h2>
+                <p><!-- 최종 결과나 배운 점을 작성하세요. --></p>
+              </section>
+            </div>
+
+            <div class="pd-right">
+              <section class="pd-section">
+                <h2 class="pd-section-title">사용 기술</h2>
+                <div class="pd-tags">
+                  <!-- <span class="pd-tag">기술명</span> -->
+                </div>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">담당 역할</h2>
+                <p><!-- 역할 --></p>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">링크</h2>
+                <!-- <a href="https://github.com/5tmdwns/..." class="pd-link" target="_blank">GitHub ↗</a> -->
+              </section>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- ===== PROJECT 6: AIoT 소프트웨어 텀 프로젝트 ===== -->
+        <div class="pd-project" data-id="6">
+          <div class="pd-body">
+
+            <div class="pd-left">
+              <section class="pd-section">
+                <h2 class="pd-section-title">개요</h2>
+                <p><!-- 프로젝트를 한두 문장으로 소개하세요. --></p>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">주요 내용</h2>
+                <ul>
+                  <li><!-- 핵심 작업 1 --></li>
+                  <li><!-- 핵심 작업 2 --></li>
+                  <li><!-- 핵심 작업 3 --></li>
+                </ul>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">결과 / 성과</h2>
+                <p><!-- 최종 결과나 배운 점을 작성하세요. --></p>
+              </section>
+            </div>
+
+            <div class="pd-right">
+              <section class="pd-section">
+                <h2 class="pd-section-title">사용 기술</h2>
+                <div class="pd-tags">
+                  <!-- <span class="pd-tag">기술명</span> -->
+                </div>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">담당 역할</h2>
+                <p><!-- 역할 --></p>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">링크</h2>
+                <!-- <a href="https://github.com/5tmdwns/..." class="pd-link" target="_blank">GitHub ↗</a> -->
+              </section>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- ===== PROJECT 7: 임베디드시스템설계 프로젝트 1 ===== -->
+        <div class="pd-project" data-id="7">
+          <div class="pd-body">
+
+            <div class="pd-left">
+              <section class="pd-section">
+                <h2 class="pd-section-title">개요</h2>
+                <p><!-- 프로젝트를 한두 문장으로 소개하세요. --></p>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">주요 내용</h2>
+                <ul>
+                  <li><!-- 핵심 작업 1 --></li>
+                  <li><!-- 핵심 작업 2 --></li>
+                  <li><!-- 핵심 작업 3 --></li>
+                </ul>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">결과 / 성과</h2>
+                <p><!-- 최종 결과나 배운 점을 작성하세요. --></p>
+              </section>
+            </div>
+
+            <div class="pd-right">
+              <section class="pd-section">
+                <h2 class="pd-section-title">사용 기술</h2>
+                <div class="pd-tags">
+                  <!-- <span class="pd-tag">C</span> -->
+                  <!-- <span class="pd-tag">STM32</span> -->
+                </div>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">담당 역할</h2>
+                <p><!-- 역할 --></p>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">링크</h2>
+                <!-- <a href="https://github.com/5tmdwns/..." class="pd-link" target="_blank">GitHub ↗</a> -->
+              </section>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- ===== PROJECT 8: 임베디드시스템설계 프로젝트 2 ===== -->
+        <div class="pd-project" data-id="8">
+          <div class="pd-body">
+
+            <div class="pd-left">
+              <section class="pd-section">
+                <h2 class="pd-section-title">개요</h2>
+                <p><!-- 프로젝트를 한두 문장으로 소개하세요. --></p>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">주요 내용</h2>
+                <ul>
+                  <li><!-- 핵심 작업 1 --></li>
+                  <li><!-- 핵심 작업 2 --></li>
+                  <li><!-- 핵심 작업 3 --></li>
+                </ul>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">결과 / 성과</h2>
+                <p><!-- 최종 결과나 배운 점을 작성하세요. --></p>
+              </section>
+            </div>
+
+            <div class="pd-right">
+              <section class="pd-section">
+                <h2 class="pd-section-title">사용 기술</h2>
+                <div class="pd-tags">
+                  <!-- <span class="pd-tag">기술명</span> -->
+                </div>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">담당 역할</h2>
+                <p><!-- 역할 --></p>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">링크</h2>
+                <!-- <a href="https://github.com/5tmdwns/..." class="pd-link" target="_blank">GitHub ↗</a> -->
+              </section>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- ===== PROJECT 9: 임베디드시스템설계 프로젝트 3 ===== -->
+        <div class="pd-project" data-id="9">
+          <div class="pd-body">
+
+            <div class="pd-left">
+              <section class="pd-section">
+                <h2 class="pd-section-title">개요</h2>
+                <p><!-- 프로젝트를 한두 문장으로 소개하세요. --></p>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">주요 내용</h2>
+                <ul>
+                  <li><!-- 핵심 작업 1 --></li>
+                  <li><!-- 핵심 작업 2 --></li>
+                  <li><!-- 핵심 작업 3 --></li>
+                </ul>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">결과 / 성과</h2>
+                <p><!-- 최종 결과나 배운 점을 작성하세요. --></p>
+              </section>
+            </div>
+
+            <div class="pd-right">
+              <section class="pd-section">
+                <h2 class="pd-section-title">사용 기술</h2>
+                <div class="pd-tags">
+                  <!-- <span class="pd-tag">기술명</span> -->
+                </div>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">담당 역할</h2>
+                <p><!-- 역할 --></p>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">링크</h2>
+                <!-- <a href="https://github.com/5tmdwns/..." class="pd-link" target="_blank">GitHub ↗</a> -->
+              </section>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- ===== PROJECT 10: SoC 설계 프로젝트 ===== -->
+        <div class="pd-project" data-id="10">
+          <div class="pd-body">
+
+            <div class="pd-left">
+              <section class="pd-section">
+                <h2 class="pd-section-title">개요</h2>
+                <p><!-- 프로젝트를 한두 문장으로 소개하세요. --></p>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">주요 내용</h2>
+                <ul>
+                  <li><!-- 핵심 작업 1 --></li>
+                  <li><!-- 핵심 작업 2 --></li>
+                  <li><!-- 핵심 작업 3 --></li>
+                </ul>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">결과 / 성과</h2>
+                <p><!-- 최종 결과나 배운 점을 작성하세요. --></p>
+              </section>
+            </div>
+
+            <div class="pd-right">
+              <section class="pd-section">
+                <h2 class="pd-section-title">사용 기술</h2>
+                <div class="pd-tags">
+                  <!-- <span class="pd-tag">Verilog</span> -->
+                  <!-- <span class="pd-tag">Cadence</span> -->
+                </div>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">담당 역할</h2>
+                <p><!-- 역할 --></p>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">링크</h2>
+                <!-- <a href="https://github.com/5tmdwns/..." class="pd-link" target="_blank">GitHub ↗</a> -->
+              </section>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- ===== PROJECT 11: 디지털집적회로모델링실험 프로젝트 1 ===== -->
+        <div class="pd-project" data-id="11">
+          <div class="pd-body">
+
+            <div class="pd-left">
+              <section class="pd-section">
+                <h2 class="pd-section-title">개요</h2>
+                <p><!-- 프로젝트를 한두 문장으로 소개하세요. --></p>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">주요 내용</h2>
+                <ul>
+                  <li><!-- 핵심 작업 1 --></li>
+                  <li><!-- 핵심 작업 2 --></li>
+                  <li><!-- 핵심 작업 3 --></li>
+                </ul>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">결과 / 성과</h2>
+                <p><!-- 최종 결과나 배운 점을 작성하세요. --></p>
+              </section>
+            </div>
+
+            <div class="pd-right">
+              <section class="pd-section">
+                <h2 class="pd-section-title">사용 기술</h2>
+                <div class="pd-tags">
+                  <!-- <span class="pd-tag">기술명</span> -->
+                </div>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">담당 역할</h2>
+                <p><!-- 역할 --></p>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">링크</h2>
+                <!-- <a href="https://github.com/5tmdwns/..." class="pd-link" target="_blank">GitHub ↗</a> -->
+              </section>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- ===== PROJECT 12: 디지털집적회로모델링실험 프로젝트 2 ===== -->
+        <div class="pd-project" data-id="12">
+          <div class="pd-body">
+
+            <div class="pd-left">
+              <section class="pd-section">
+                <h2 class="pd-section-title">개요</h2>
+                <p><!-- 프로젝트를 한두 문장으로 소개하세요. --></p>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">주요 내용</h2>
+                <ul>
+                  <li><!-- 핵심 작업 1 --></li>
+                  <li><!-- 핵심 작업 2 --></li>
+                  <li><!-- 핵심 작업 3 --></li>
+                </ul>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">결과 / 성과</h2>
+                <p><!-- 최종 결과나 배운 점을 작성하세요. --></p>
+              </section>
+            </div>
+
+            <div class="pd-right">
+              <section class="pd-section">
+                <h2 class="pd-section-title">사용 기술</h2>
+                <div class="pd-tags">
+                  <!-- <span class="pd-tag">기술명</span> -->
+                </div>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">담당 역할</h2>
+                <p><!-- 역할 --></p>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">링크</h2>
+                <!-- <a href="https://github.com/5tmdwns/..." class="pd-link" target="_blank">GitHub ↗</a> -->
+              </section>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- ===== PROJECT 13: 디지털집적회로모델링실험 프로젝트 3 ===== -->
+        <div class="pd-project" data-id="13">
+          <div class="pd-body">
+
+            <div class="pd-left">
+              <section class="pd-section">
+                <h2 class="pd-section-title">개요</h2>
+                <p><!-- 프로젝트를 한두 문장으로 소개하세요. --></p>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">주요 내용</h2>
+                <ul>
+                  <li><!-- 핵심 작업 1 --></li>
+                  <li><!-- 핵심 작업 2 --></li>
+                  <li><!-- 핵심 작업 3 --></li>
+                </ul>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">결과 / 성과</h2>
+                <p><!-- 최종 결과나 배운 점을 작성하세요. --></p>
+              </section>
+            </div>
+
+            <div class="pd-right">
+              <section class="pd-section">
+                <h2 class="pd-section-title">사용 기술</h2>
+                <div class="pd-tags">
+                  <!-- <span class="pd-tag">기술명</span> -->
+                </div>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">담당 역할</h2>
+                <p><!-- 역할 --></p>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">링크</h2>
+                <!-- <a href="https://github.com/5tmdwns/..." class="pd-link" target="_blank">GitHub ↗</a> -->
+              </section>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- ===== PROJECT 14: 종합설계 & 졸업논문 (Capstone) ===== -->
+        <div class="pd-project" data-id="14">
+          <div class="pd-body">
+
+            <div class="pd-left">
+              <section class="pd-section">
+                <h2 class="pd-section-title">개요</h2>
+                <p><!-- 프로젝트를 한두 문장으로 소개하세요. --></p>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">주요 내용</h2>
+                <ul>
+                  <li><!-- 핵심 작업 1 --></li>
+                  <li><!-- 핵심 작업 2 --></li>
+                  <li><!-- 핵심 작업 3 --></li>
+                </ul>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">결과 / 성과</h2>
+                <p><!-- 최종 결과나 배운 점을 작성하세요. --></p>
+              </section>
+            </div>
+
+            <div class="pd-right">
+              <section class="pd-section">
+                <h2 class="pd-section-title">사용 기술</h2>
+                <div class="pd-tags">
+                  <!-- <span class="pd-tag">기술명</span> -->
+                </div>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">담당 역할</h2>
+                <p><!-- 역할 --></p>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">링크</h2>
+                <!-- <a href="https://github.com/5tmdwns/..." class="pd-link" target="_blank">GitHub ↗</a> -->
+              </section>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- ===== PROJECT 15: 우회전 연동 자동 좌향 사이드 미러 제어 시스템 (특허) ===== -->
+        <div class="pd-project" data-id="15">
+          <div class="pd-body">
+
+            <div class="pd-left">
+              <section class="pd-section">
+                <h2 class="pd-section-title">개요</h2>
+                <p><!-- 프로젝트를 한두 문장으로 소개하세요. --></p>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">주요 내용</h2>
+                <ul>
+                  <li><!-- 핵심 작업 1 --></li>
+                  <li><!-- 핵심 작업 2 --></li>
+                  <li><!-- 핵심 작업 3 --></li>
+                </ul>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">결과 / 성과</h2>
+                <p><!-- 특허 출원 번호, 심사 현황 등 --></p>
+              </section>
+            </div>
+
+            <div class="pd-right">
+              <section class="pd-section">
+                <h2 class="pd-section-title">사용 기술</h2>
+                <div class="pd-tags">
+                  <!-- <span class="pd-tag">기술명</span> -->
+                </div>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">담당 역할</h2>
+                <p><!-- 발명자, 기여 내용 --></p>
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">특허 정보</h2>
+                <!-- <p>출원번호: ...</p> -->
+              </section>
+            </div>
+
+          </div>
+        </div>
+
+
+      </div><!-- /#pd-sections -->
+    </div><!-- /.container -->
+  </div><!-- /.pf-detail-page -->
 
   <!-- SIDEBAR -->
   <nav class="pf-sidenav" id="pf-sidenav">
@@ -73,7 +751,7 @@
       document.getElementById('pf-nav-links').classList.toggle('open');
     });
 
-    // Project data
+    // Project metadata (제목, 날짜)
     var projects = {
       1:  { title: '웹/파이썬 프로그래밍 텀 프로젝트',            date: '2023.03 – 2023.06' },
       2:  { title: 'Adventure Design 프로젝트',                   date: '2023.09 – 2023.12' },
@@ -81,9 +759,9 @@
       4:  { title: '디지털회로설계및언어 프로젝트 2',              date: '2024.04 – 2024.05' },
       5:  { title: '디지털회로설계및언어 프로젝트 3',              date: '2024.05 – 2024.06' },
       6:  { title: 'AIoT 소프트웨어 텀 프로젝트',                 date: '2024.05 – 2024.06' },
-      7:  { title: '임베디드시스템설계 프로젝트 1',              date: '2024.09 – 2024.10' },
-      8:  { title: '임베디드시스템설계 프로젝트 2',              date: '2024.10 – 2024.11' },
-      9:  { title: '임베디드시스템설계 프로젝트 3',              date: '2024.11 – 2024.12' },
+      7:  { title: '임베디드시스템설계 프로젝트 1',                date: '2024.09 – 2024.10' },
+      8:  { title: '임베디드시스템설계 프로젝트 2',                date: '2024.10 – 2024.11' },
+      9:  { title: '임베디드시스템설계 프로젝트 3',                date: '2024.11 – 2024.12' },
       10: { title: 'SoC 설계 프로젝트',                           date: '2024.09 – 2024.12' },
       11: { title: '디지털집적회로모델링실험 프로젝트 1',           date: '2025.03 – 2025.04' },
       12: { title: '디지털집적회로모델링실험 프로젝트 2',           date: '2025.04 – 2025.05' },
@@ -92,15 +770,21 @@
       15: { title: '우회전 연동 자동 좌향 사이드 미러 제어 시스템', date: '2025.07.16 출원 (특허)' }
     };
 
-    // Read id from URL
+    // URL에서 id 읽기
     var params = new URLSearchParams(window.location.search);
     var id = parseInt(params.get('id'), 10);
     var project = projects[id];
 
+    // 제목 세팅
     if (project) {
-      document.title = '오승준 | 포트폴리오';
+      document.title = '오승준 | ' + project.title;
       document.getElementById('detail-title').textContent = project.title;
     }
+
+    // 해당 프로젝트 섹션만 보이기
+    document.querySelectorAll('.pd-project').forEach(function(el) {
+      el.style.display = (parseInt(el.getAttribute('data-id'), 10) === id) ? 'block' : 'none';
+    });
 
     window.addEventListener('pageshow', function() {
       document.body.classList.remove('pf-page-exit');
