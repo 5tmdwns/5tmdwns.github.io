@@ -370,19 +370,21 @@
                 <div class="pd-mid-cell">
                   <h2 class="pd-section-title">디스플레이 SW 컴포넌트(STM32 F103RB)</h2>
                   <div style="display:flex; flex-direction:column; gap:6px; margin-top:8px;">
-                    <!-- Config: 정사각형에 가까워 단독 전체 너비 -->
-                    <img src="images/id7/id7_STM32_Config.png" alt="STM32 Config" class="pd-lightbox-img" style="width:60%; height:auto; object-fit:contain; cursor:pointer; border-radius:4px; display:block; margin:0 auto;">
+                    <!-- Config + 문구 나란히 -->
+                    <div style="display:flex; gap:10px; align-items:flex-start;">
+                      <img src="images/id7/id7_STM32_Config.png" alt="STM32 Config" class="pd-lightbox-img" style="width:45%; height:auto; object-fit:contain; cursor:pointer; border-radius:4px; flex-shrink:0;">
+                      <ul style="font-size:0.75rem; color:var(--gray); margin:0; padding-left:1.2em; line-height:1.7;">
+                        <li>64Mhz Clock을 이용해서 Prescaler를 7999로 설정.</li>
+                        <li>64Mhz/7999+1로 Counter Clock 설정.</li>
+                        <li>8000hz로 Counter의 주기를 9999로 가져가 1.25초 대략 1초마다 Timer Overflow Interrupt가 발생시키도록 설정.</li>
+                      </ul>
+                    </div>
                     <!-- Config2 + Config3: 가로형이라 나란히 -->
                     <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px;">
                       <img src="images/id7/id7_STM32_Config2.png" alt="STM32 Config 2" class="pd-lightbox-img" style="width:100%; height:auto; object-fit:contain; cursor:pointer; border-radius:4px;">
                       <img src="images/id7/id7_STM32_Config3.png" alt="STM32 Config 3" class="pd-lightbox-img" style="width:100%; height:auto; object-fit:contain; cursor:pointer; border-radius:4px;">
                     </div>
                   </div>
-                  <ul style="font-size:0.75rem; color:var(--gray); margin-top:6px; padding-left:1.2em; line-height:1.7;">
-                    <li>64Mhz Clock을 이용해서 Prescaler를 7999로 설정.</li>
-                    <li>64Mhz/7999+1로 Counter Clock 설정.</li>
-                    <li>8000hz로 Counter의 주기를 9999로 가져가 1.25초 대략 1초마다 Timer Overflow Interrupt가 발생시키도록 설정.</li>
-                  </ul>
                 </div>
 
                 <!-- 좌하: 회로도 -->
