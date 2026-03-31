@@ -1368,6 +1368,50 @@ body.pf-page-exit {
   margin-bottom: 40px;
 }
 
+/* A4 landscape 문서 뷰 (pd-page-layout 사용 시) */
+.pf-detail-page:has(.pd-page-layout) {
+  padding: calc(var(--nav-height) + 20px) 20px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.pf-detail-page:has(.pd-page-layout) .container {
+  width: 297mm;
+  max-width: 297mm;
+  min-height: 210mm;
+  padding: 10mm 14mm;
+  background: var(--card, #13131f);
+  border-radius: 4px;
+  box-shadow: 0 4px 40px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+.pf-detail-page:has(.pd-page-layout) .pf-detail-header {
+  margin-bottom: 10px;
+  flex-shrink: 0;
+}
+
+.pf-detail-page:has(.pd-page-layout) #pd-sections {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.pf-detail-page:has(.pd-page-layout) .pd-project {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.pf-detail-page:has(.pd-page-layout) .pd-page-layout {
+  flex: 1;
+  min-height: 0;
+}
+
 .pf-detail-back {
   display: inline-flex;
   align-items: center;
@@ -1642,8 +1686,9 @@ body.pf-page-exit {
 
   /* 레이아웃 리셋 */
   body { background: #fff !important; font-size: 10pt; }
-  .pf-detail-page { padding: 0 !important; min-height: unset !important; }
-  .container { max-width: 100% !important; padding: 0 !important; }
+  .pf-detail-page { padding: 0 !important; min-height: unset !important; display: block !important; }
+  .container { width: 100% !important; max-width: 100% !important; padding: 0 !important; min-height: unset !important; box-shadow: none !important; border-radius: 0 !important; background: transparent !important; display: block !important; }
+  #pd-sections, .pd-project { display: block !important; }
 
   /* 헤더 */
   .pf-detail-header { margin-bottom: 14pt; }
