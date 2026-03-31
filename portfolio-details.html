@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/aos.css">
   <link rel="stylesheet" href="css/custom.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
 
@@ -42,7 +43,10 @@
 
       <!-- 헤더 -->
       <div class="pf-detail-header">
-        <a href="portfolio.html" class="pf-detail-back pf-nav-item">&#8592; Works</a>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+          <a href="portfolio.html" class="pf-detail-back pf-nav-item">&#8592; Works</a>
+          <button id="pdf-save-btn" style="font-size:0.8rem; padding:6px 16px; border:1.5px solid var(--sky); background:transparent; color:var(--sky); border-radius:20px; cursor:pointer; font-family:inherit; transition:all 0.2s;">PDF 저장</button>
+        </div>
         <h1 class="pf-detail-title" id="detail-title"></h1>
         <div class="pf-detail-line"></div>
       </div>
@@ -992,6 +996,33 @@
 
     window.addEventListener('pageshow', function() {
       document.body.classList.remove('pf-page-exit');
+    });
+
+    // PDF 저장
+    document.getElementById('pdf-save-btn').addEventListener('click', function() {
+      var btn = this;
+      btn.textContent = '생성 중...';
+      btn.disabled = true;
+
+      var projectEl = document.querySelector('.pd-project[style*="block"]') ||
+                      document.querySelector('.pd-project:not([style*="none"])');
+      var titleEl = document.getElementById('detail-title');
+      var title = titleEl ? titleEl.textContent.trim() : '포트폴리오';
+
+      var opt = {
+        margin:      [8, 10, 8, 10],
+        filename:    title + '.pdf',
+        image:       { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true, scrollY: 0 },
+        jsPDF:       { unit: 'mm', format: 'a4', orientation: 'landscape' },
+        pagebreak:   { mode: ['avoid-all', 'css', 'legacy'] }
+      };
+
+      var target = document.querySelector('.pf-detail-page');
+      html2pdf().set(opt).from(target).save().then(function() {
+        btn.textContent = 'PDF 저장';
+        btn.disabled = false;
+      });
     });
 
     // Page transition
