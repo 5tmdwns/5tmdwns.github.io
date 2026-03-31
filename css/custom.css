@@ -597,20 +597,20 @@ img { max-width: 100%; }
   flex-direction: column;
   align-items: center;
   gap: 6px;
-  min-width: 90px;
+  min-width: 120px;
   flex-shrink: 0;
 }
 
 .pf-skill-card.pf-skill-card-wide img {
-  width: 56px !important;
-  height: 56px !important;
+  width: 140px !important;
+  height: auto !important;
   margin: 0 !important;
   display: block !important;
   flex-shrink: 0;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   border-radius: 8px;
   background: var(--white);
-  padding: 2px;
+  padding: 4px;
   object-fit: contain;
 }
 
