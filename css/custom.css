@@ -1714,6 +1714,9 @@ body.pf-page-exit {
   .pd-mid-cell img { width: 100% !important; max-width: 100% !important; }
   .pd-photo-grid img { width: 100% !important; }
   .pd-row-bot img { width: 100% !important; }
+  /* 이미지+문구 나란히 레이아웃 예외 */
+  .pd-img-text-row { display: flex !important; align-items: center !important; gap: 8pt !important; }
+  .pd-img-fixed { width: 40% !important; flex-shrink: 0 !important; }
 
   /* 코드 블록 */
   .pd-code { font-size: 6pt !important; white-space: pre-wrap !important; overflow: visible !important; word-break: break-all !important; }
