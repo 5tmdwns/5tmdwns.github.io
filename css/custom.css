@@ -1535,7 +1535,7 @@ body.pf-page-exit {
 .pd-mid-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: auto auto;
   height: 100%;
   gap: 0;
 }
