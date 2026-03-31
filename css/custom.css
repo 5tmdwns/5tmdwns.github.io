@@ -1380,13 +1380,14 @@ body.pf-page-exit {
 .pf-detail-page:has(.pd-page-layout) .container {
   width: 297mm;
   max-width: 297mm;
-  min-height: 210mm;
-  padding: 10mm 14mm;
+  height: 210mm;
+  padding: 8mm 12mm;
   background: #ffffff;
   border-radius: 2px;
   box-shadow: 0 4px 24px rgba(0,0,0,0.25);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .pf-detail-page:has(.pd-page-layout) .pf-detail-header {
@@ -1534,26 +1535,22 @@ body.pf-page-exit {
 .pd-page-layout {
   display: grid;
   grid-template-rows: auto 1fr auto;
-  min-height: calc(100vh - 200px);
-  border: 1px solid #d0d0d0;
-  border-radius: 4px;
+  flex: 1;
+  min-height: 0;
   overflow: hidden;
-  gap: 1px;
-  background: #d0d0d0;
 }
 
 .pd-row-top,
 .pd-row-mid,
 .pd-row-bot {
   background: #ffffff;
-  padding: 16px 20px;
+  padding: 6px 0;
 }
 
 .pd-row-top {
   display: grid;
   grid-template-columns: 2fr 1fr 2fr;
   gap: 20px;
-  border-bottom: 1px solid #d0d0d0;
 }
 
 .pd-mid-grid {
@@ -1561,14 +1558,13 @@ body.pf-page-exit {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   height: 100%;
-  gap: 1px;
-  background: #d0d0d0;
+  gap: 0;
 }
 
 .pd-mid-cell {
   background: #ffffff;
-  padding: 14px 16px;
-  overflow: auto;
+  padding: 10px 12px;
+  overflow: hidden;
 }
 
 .pd-mid-cell img {
@@ -1581,7 +1577,6 @@ body.pf-page-exit {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
-  border-top: 1px solid #d0d0d0;
 }
 
 @media (max-width: 768px) {
