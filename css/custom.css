@@ -1485,6 +1485,70 @@ body.pf-page-exit {
 }
 .pd-link:hover { color: var(--sky-dark); }
 
+/* ---------- A4 가로 4분면 레이아웃 ---------- */
+.pd-a4-landscape {
+  width: 100%;
+  aspect-ratio: 297 / 210;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+
+.pd-a4-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  height: 100%;
+  gap: 1px;
+  background: rgba(255,255,255,0.08);
+}
+
+.pd-quad-cell {
+  background: var(--card-bg, #1a1a2e);
+  padding: 20px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pd-quad-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.pd-quad-cell p {
+  font-size: 0.88rem;
+  color: var(--gray);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.pd-quad-cell h3 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--sky);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0 0 6px;
+}
+
+/* print */
+@media print {
+  .pd-a4-landscape {
+    aspect-ratio: 297 / 210;
+    page-break-inside: avoid;
+    border: 0.5pt solid #ccc !important;
+  }
+  .pd-a4-grid { background: #ccc !important; gap: 0.5pt !important; }
+  .pd-quad-cell { background: #fff !important; padding: 10pt !important; }
+  .pd-quad-cell p { font-size: 8pt !important; }
+  .pd-quad-cell h3 { font-size: 7pt !important; color: #4BAEE8 !important; }
+}
+
 /* ---------- Print (A4 가로) ---------- */
 @media print {
   @page { size: A4 landscape; margin: 12mm 18mm; }
