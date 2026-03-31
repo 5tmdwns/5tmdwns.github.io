@@ -378,7 +378,11 @@
                       <img src="images/id7/id7_STM32_Config3.png" alt="STM32 Config 3" class="pd-lightbox-img" style="width:100%; height:auto; object-fit:contain; cursor:pointer; border-radius:4px;">
                     </div>
                   </div>
-                  <p style="font-size:0.75rem; color:var(--gray); text-align:center; margin-top:6px;">Timer Overflow Interrupt</p>
+                  <ul style="font-size:0.75rem; color:var(--gray); margin-top:6px; padding-left:1.2em; line-height:1.7;">
+                    <li>64Mhz Clock을 이용해서 Prescaler를 7999로 설정.</li>
+                    <li>64Mhz/7999+1로 Counter Clock 설정.</li>
+                    <li>8000hz로 Counter의 주기를 9999로 가져가 1.25초 대략 1초마다 Timer Overflow Interrupt가 발생시키도록 설정.</li>
+                  </ul>
                 </div>
 
                 <!-- 좌하: 회로도 -->
