@@ -1374,6 +1374,7 @@ body.pf-page-exit {
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  background: #0a0a14;
 }
 
 .pf-detail-page:has(.pd-page-layout) .container {
@@ -1688,7 +1689,9 @@ body.pf-page-exit {
   body { background: #fff !important; font-size: 10pt; }
   .pf-detail-page { padding: 0 !important; min-height: unset !important; display: block !important; }
   .container { width: 100% !important; max-width: 100% !important; padding: 0 !important; min-height: unset !important; box-shadow: none !important; border-radius: 0 !important; background: transparent !important; display: block !important; }
-  #pd-sections, .pd-project { display: block !important; }
+  /* 숨겨진 프로젝트는 인쇄에서도 숨김 (JS inline style 유지) */
+  #pd-sections { display: block !important; }
+  .pd-project[style*="display: none"] { display: none !important; }
 
   /* 헤더 */
   .pf-detail-header { margin-bottom: 14pt; }
