@@ -413,8 +413,7 @@
     laundryData[0] = encoderValue;
     SPI_sendDataToSTM(sendingStateData[1]);
     _delay_ms(10);
-    if (ackSTM == 0x20)
-    {
+    if (ackSTM == 0x20) {
       SPI_sendDataToAr(encoderValue);
       state = WATERTEMP;
     }
@@ -423,8 +422,7 @@
     laundryData[1] = encoderValue;
     SPI_sendDataToSTM(sendingStateData[2]);
     _delay_ms(10);
-    if (ackSTM == 0x20)
-    {
+    if (ackSTM == 0x20) {
       SPI_sendDataToAr(encoderValue);
       state = RINSECOUNT;
     }
@@ -433,23 +431,14 @@
                       <p class="pd-code-caption">세탁 모드 설정 SW 컴포넌트(Atmega328P) 코드</p>
                     </div>
                     <div>
-                      <pre class="pd-code"><code>void HAL_SPI_RxCpltCallback(
-    SPI_HandleTypeDef *hspi)
-{
-  if (hspi->Instance == SPI1)
-  {
+                      <pre class="pd-code"><code>void HAL_SPI_RxCpltCallback(SPI_HandleTypeDef *hspi) {
+  if (hspi->Instance == SPI1) {
     if (receivedData &lt; 3)
-      memcpy(&amp;encoderData,
-        &amp;receivedData,
-        sizeof(receivedData));
-    else if (receivedData &gt;= 3)
-    {
-      memcpy(&amp;stateData,
-        &amp;receivedData,
-        sizeof(receivedData));
+      memcpy(&amp;encoderData, &amp;receivedData, sizeof(receivedData));
+    else if (receivedData &gt;= 3) {
+      memcpy(&amp;stateData, &amp;receivedData, sizeof(receivedData));
       ack = 0x20;
-      HAL_SPI_Transmit(
-        &amp;hspi1, &amp;ack, 1, 1);
+      HAL_SPI_Transmit(&amp;hspi1, &amp;ack, 1, 1);
     }
     receivedFlag = 1;
   }
