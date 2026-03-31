@@ -1370,48 +1370,16 @@ body.pf-page-exit {
 
 /* A4 landscape 문서 뷰 (pd-page-layout 사용 시) */
 .pf-detail-page:has(.pd-page-layout) {
-  padding: calc(var(--nav-height) + 20px) 20px 20px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  background: var(--white);
+  padding: calc(var(--nav-height) + 60px) 0 60px;
 }
 
 .pf-detail-page:has(.pd-page-layout) .container {
-  width: 297mm;
-  max-width: 297mm;
-  height: 210mm;
-  padding: 8mm 12mm;
-  background: #ffffff;
-  border-radius: 2px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.25);
   display: flex;
   flex-direction: column;
-  overflow: hidden;
 }
 
 .pf-detail-page:has(.pd-page-layout) .pf-detail-header {
-  margin-bottom: 10px;
-  flex-shrink: 0;
-}
-
-.pf-detail-page:has(.pd-page-layout) #pd-sections {
-  flex: 1;
-  min-height: 0;
-  display: flex;
-  flex-direction: column;
-}
-
-.pf-detail-page:has(.pd-page-layout) .pd-project {
-  flex: 1;
-  min-height: 0;
-  display: flex;
-  flex-direction: column;
-}
-
-.pf-detail-page:has(.pd-page-layout) .pd-page-layout {
-  flex: 1;
-  min-height: 0;
+  margin-bottom: 20px;
 }
 
 .pf-detail-back {
