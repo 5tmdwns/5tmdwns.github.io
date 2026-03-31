@@ -1451,6 +1451,10 @@ body.pf-page-exit {
   margin-bottom: 28px;
 }
 
+.pd-row-bot .pd-section {
+  margin-bottom: 0;
+}
+
 .pd-section-title {
   font-size: 0.72rem;
   font-weight: 700;
@@ -1571,10 +1575,11 @@ body.pf-page-exit {
 }
 
 .pd-row-bot {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr 1fr !important;
   gap: 20px;
   align-items: start;
+  padding: 6px 12px;
 }
 
 @media (max-width: 768px) {
