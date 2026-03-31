@@ -1719,11 +1719,11 @@ body.pf-page-exit {
   .pd-mid-cell img { max-height: 30mm !important; width: 100% !important; }
   .pd-row-bot img { max-height: 22mm !important; width: 100% !important; }
 
-  /* 이미지+문구 나란히 - 명시적으로 flex 유지 */
-  .pd-img-text-row { display: flex !important; flex-direction: row !important; align-items: center !important; gap: 6pt !important; flex-wrap: nowrap !important; }
-  .pd-img-text-row .pd-img-fixed { width: 35% !important; max-width: 35% !important; flex-shrink: 0 !important; max-height: 25mm !important; }
-  .pd-img-text-row ul { flex: 1 !important; font-size: 7pt !important; color: #666 !important; padding-left: 10pt !important; margin: 0 !important; line-height: 1.5 !important; }
-  .pd-img-text-row li { margin-bottom: 2pt !important; }
+  /* 이미지+문구 나란히 - specificity 높여서 width:100% 덮어쓰기 방지 */
+  .pd-mid-cell .pd-img-text-row { display: flex !important; flex-direction: row !important; align-items: center !important; gap: 6pt !important; flex-wrap: nowrap !important; }
+  .pd-mid-cell .pd-img-text-row img.pd-img-fixed { width: 38% !important; max-width: 38% !important; flex-shrink: 0 !important; max-height: 28mm !important; }
+  .pd-mid-cell .pd-img-text-row ul { flex: 1 !important; font-size: 6.5pt !important; color: #555 !important; padding-left: 10pt !important; margin: 0 !important; line-height: 1.5 !important; }
+  .pd-mid-cell .pd-img-text-row li { margin-bottom: 2pt !important; }
 
   /* 코드 블록 */
   .pd-code { font-size: 5.5pt !important; white-space: pre-wrap !important; overflow: visible !important; word-break: break-all !important; line-height: 1.4 !important; padding: 4pt !important; }
