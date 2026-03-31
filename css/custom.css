@@ -1562,25 +1562,23 @@ body.pf-page-exit {
 
 @media print {
   .pd-page-layout {
+    display: block !important;
+    height: auto !important;
     min-height: unset !important;
-    height: 150mm;
-    page-break-inside: avoid;
-    gap: 0.5pt !important;
-    background: #ccc !important;
+    overflow: visible !important;
+    background: transparent !important;
     border: none !important;
     border-radius: 0 !important;
-    display: grid !important;
-    grid-template-rows: auto 1fr auto !important;
+    gap: 0 !important;
   }
   .pd-row-top { gap: 10pt !important; padding: 5pt 8pt !important; background: #fff !important; grid-template-columns: 2fr 1fr 2fr !important; }
-  .pd-row-mid { padding: 0 !important; background: transparent !important; overflow: hidden !important; min-height: 0 !important; }
+  .pd-row-mid { padding: 0 !important; background: transparent !important; overflow: visible !important; height: auto !important; }
   .pd-row-bot { gap: 10pt !important; padding: 5pt 8pt !important; background: #fff !important; }
-  .pd-mid-grid { gap: 0.5pt !important; background: #ccc !important; height: 100% !important; display: grid !important; grid-template-columns: 1fr 1fr !important; grid-template-rows: 1fr 1fr !important; }
-  .pd-mid-cell { padding: 4pt 5pt !important; background: #fff !important; overflow: hidden !important; min-height: 0 !important; }
-  /* 2장 이미지 (회로도 등) */
-  .pd-mid-cell img { max-height: 38mm !important; width: auto !important; max-width: 100% !important; object-fit: contain !important; }
-  /* 6장 이미지 (3×2 그리드) - 더 뒤에 선언해서 우선 적용 */
-  .pd-photo-grid img { max-height: 19mm !important; width: 100% !important; object-fit: contain !important; }
+  .pd-mid-grid { gap: 4pt !important; background: transparent !important; height: auto !important; display: grid !important; grid-template-columns: 1fr 1fr !important; grid-template-rows: auto !important; }
+  .pd-mid-cell { padding: 4pt 5pt !important; background: #fff !important; overflow: visible !important; height: auto !important; }
+  /* 이미지 잘림 없이 전체 표시 */
+  .pd-mid-cell img { max-height: none !important; width: 100% !important; max-width: 100% !important; height: auto !important; object-fit: contain !important; }
+  .pd-photo-grid img { max-height: none !important; width: 100% !important; height: auto !important; object-fit: contain !important; }
   .pd-row-top .pd-section,
   .pd-row-bot .pd-section { margin-bottom: 0 !important; }
 }
