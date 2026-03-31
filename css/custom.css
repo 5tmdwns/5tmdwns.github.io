@@ -1374,7 +1374,7 @@ body.pf-page-exit {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  background: #0a0a14;
+  background: #d0d4da;
 }
 
 .pf-detail-page:has(.pd-page-layout) .container {
@@ -1382,9 +1382,9 @@ body.pf-page-exit {
   max-width: 297mm;
   min-height: 210mm;
   padding: 10mm 14mm;
-  background: var(--card, #13131f);
-  border-radius: 4px;
-  box-shadow: 0 4px 40px rgba(0,0,0,0.5);
+  background: #ffffff;
+  border-radius: 2px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.25);
   display: flex;
   flex-direction: column;
 }
@@ -1535,17 +1535,17 @@ body.pf-page-exit {
   display: grid;
   grid-template-rows: auto 1fr auto;
   min-height: calc(100vh - 200px);
-  border: 1px solid rgba(255,255,255,0.07);
-  border-radius: 6px;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
   overflow: hidden;
   gap: 1px;
-  background: rgba(255,255,255,0.07);
+  background: #d0d0d0;
 }
 
 .pd-row-top,
 .pd-row-mid,
 .pd-row-bot {
-  background: var(--card-bg, #12121f);
+  background: #ffffff;
   padding: 16px 20px;
 }
 
@@ -1553,7 +1553,7 @@ body.pf-page-exit {
   display: grid;
   grid-template-columns: 2fr 1fr 2fr;
   gap: 20px;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
+  border-bottom: 1px solid #d0d0d0;
 }
 
 .pd-mid-grid {
@@ -1562,11 +1562,11 @@ body.pf-page-exit {
   grid-template-rows: 1fr 1fr;
   height: 100%;
   gap: 1px;
-  background: rgba(255,255,255,0.07);
+  background: #d0d0d0;
 }
 
 .pd-mid-cell {
-  background: var(--card-bg, #12121f);
+  background: #ffffff;
   padding: 14px 16px;
   overflow: auto;
 }
@@ -1581,7 +1581,7 @@ body.pf-page-exit {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
-  border-top: 1px solid rgba(255,255,255,0.07);
+  border-top: 1px solid #d0d0d0;
 }
 
 @media (max-width: 768px) {
@@ -1593,20 +1593,24 @@ body.pf-page-exit {
 @media print {
   .pd-page-layout {
     min-height: unset !important;
-    height: 148mm;
+    height: 150mm;
     page-break-inside: avoid;
-    gap: 0.4pt !important;
-    background: #bbb !important;
+    gap: 0.5pt !important;
+    background: #ccc !important;
     border: none !important;
     border-radius: 0 !important;
+    display: grid !important;
+    grid-template-rows: auto 1fr auto !important;
   }
   .pd-row-top { gap: 10pt !important; padding: 5pt 8pt !important; background: #fff !important; grid-template-columns: 2fr 1fr 2fr !important; }
-  .pd-row-mid { padding: 0 !important; background: transparent !important; overflow: hidden !important; }
+  .pd-row-mid { padding: 0 !important; background: transparent !important; overflow: hidden !important; min-height: 0 !important; }
   .pd-row-bot { gap: 10pt !important; padding: 5pt 8pt !important; background: #fff !important; }
-  .pd-mid-grid { gap: 0.4pt !important; background: #bbb !important; height: 100% !important; }
-  .pd-mid-cell { padding: 5pt 6pt !important; background: #fff !important; overflow: hidden !important; }
-  .pd-photo-grid img { max-height: 22mm !important; width: auto !important; max-width: 100% !important; object-fit: contain !important; }
-  .pd-mid-cell img { max-height: 42mm !important; object-fit: contain !important; }
+  .pd-mid-grid { gap: 0.5pt !important; background: #ccc !important; height: 100% !important; display: grid !important; grid-template-columns: 1fr 1fr !important; grid-template-rows: 1fr 1fr !important; }
+  .pd-mid-cell { padding: 4pt 5pt !important; background: #fff !important; overflow: hidden !important; min-height: 0 !important; }
+  /* 2장 이미지 (회로도 등) */
+  .pd-mid-cell img { max-height: 38mm !important; width: auto !important; max-width: 100% !important; object-fit: contain !important; }
+  /* 6장 이미지 (3×2 그리드) - 더 뒤에 선언해서 우선 적용 */
+  .pd-photo-grid img { max-height: 19mm !important; width: 100% !important; object-fit: contain !important; }
   .pd-row-top .pd-section,
   .pd-row-bot .pd-section { margin-bottom: 0 !important; }
 }
