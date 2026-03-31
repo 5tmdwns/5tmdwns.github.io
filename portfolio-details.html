@@ -405,7 +405,62 @@
                 <!-- 우하: Trouble Shooting -->
                 <div class="pd-mid-cell" style="height:auto;">
                   <h2 class="pd-section-title">Trouble Shooting</h2>
-                  <!-- 내용 추가 가능 -->
+                  <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:8px;">
+                    <div>
+                      <pre class="pd-code"><code>switch (state)
+{
+  case WASHING :
+    laundryData[0] = encoderValue;
+    SPI_sendDataToSTM(sendingStateData[1]);
+    _delay_ms(10);
+    if (ackSTM == 0x20)
+    {
+      SPI_sendDataToAr(encoderValue);
+      state = WATERTEMP;
+    }
+    break;
+  case WATERTEMP :
+    laundryData[1] = encoderValue;
+    SPI_sendDataToSTM(sendingStateData[2]);
+    _delay_ms(10);
+    if (ackSTM == 0x20)
+    {
+      SPI_sendDataToAr(encoderValue);
+      state = RINSECOUNT;
+    }
+    break;
+}</code></pre>
+                      <p class="pd-code-caption">세탁 모드 설정 SW 컴포넌트(Atmega328P) 코드</p>
+                    </div>
+                    <div>
+                      <pre class="pd-code"><code>void HAL_SPI_RxCpltCallback(
+    SPI_HandleTypeDef *hspi)
+{
+  if (hspi->Instance == SPI1)
+  {
+    if (receivedData &lt; 3)
+      memcpy(&amp;encoderData,
+        &amp;receivedData,
+        sizeof(receivedData));
+    else if (receivedData &gt;= 3)
+    {
+      memcpy(&amp;stateData,
+        &amp;receivedData,
+        sizeof(receivedData));
+      ack = 0x20;
+      HAL_SPI_Transmit(
+        &amp;hspi1, &amp;ack, 1, 1);
+    }
+    receivedFlag = 1;
+  }
+}</code></pre>
+                      <p class="pd-code-caption">디스플레이 SW 컴포넌트(STM32 F103RB) SPI Callback 코드</p>
+                    </div>
+                  </div>
+                  <p style="font-size:0.75rem; color:var(--gray); margin-top:8px; line-height:1.7;">
+                    아두이노 로타리의 버튼을 누를 시에 Data와 아두이노 로타리의 회전에 의한 Data가 겹쳐서 씹히는 경우가 발생.<br>
+                    이를 방지한 버튼을 눌렀을 시의 Data를 잘 받았으면 ack = 0x20을 전송.
+                  </p>
                 </div>
 
               </div>

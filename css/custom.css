@@ -1549,6 +1549,27 @@ body.pf-page-exit {
   display: block;
 }
 
+.pd-code {
+  background: #f4f6f8;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 0.65rem;
+  line-height: 1.6;
+  overflow-x: auto;
+  white-space: pre;
+  margin: 0;
+  font-family: 'Courier New', monospace;
+  color: #2d2d2d;
+}
+
+.pd-code-caption {
+  font-size: 0.68rem;
+  color: var(--gray);
+  text-align: center;
+  margin: 4px 0 0;
+}
+
 .pd-row-bot {
   display: grid;
   grid-template-columns: 1fr 1fr;
