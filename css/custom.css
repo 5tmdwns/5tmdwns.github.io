@@ -1485,6 +1485,59 @@ body.pf-page-exit {
 }
 .pd-link:hover { color: var(--sky-dark); }
 
+/* ---------- 1페이지 3행 레이아웃 ---------- */
+.pd-page-layout {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: calc(100vh - 180px);
+  gap: 1px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.pd-row-top,
+.pd-row-mid,
+.pd-row-bot {
+  background: var(--card-bg, #12121f);
+  padding: 20px 24px;
+}
+
+.pd-row-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr;
+  gap: 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.pd-row-mid {
+  overflow: auto;
+}
+
+.pd-row-bot {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+
+@media (max-width: 768px) {
+  .pd-row-top { grid-template-columns: 1fr; }
+  .pd-row-bot { grid-template-columns: 1fr; }
+}
+
+@media print {
+  .pd-page-layout {
+    min-height: unset !important;
+    height: calc(297mm - 24mm);
+    page-break-inside: avoid;
+  }
+  .pd-row-top,
+  .pd-row-mid,
+  .pd-row-bot { padding: 8pt 10pt !important; background: #fff !important; }
+}
+
 /* ---------- A4 가로 4분면 레이아웃 ---------- */
 .pd-a4-landscape {
   width: 100%;
