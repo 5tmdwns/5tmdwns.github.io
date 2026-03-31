@@ -1368,6 +1368,13 @@ body.pf-page-exit {
   margin-bottom: 40px;
 }
 
+/* Portfolio Detail Page - 양옆 공백 제거 */
+.pf-detail-page .container {
+  max-width: 100%;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
 /* A4 landscape 문서 뷰 (pd-page-layout 사용 시) */
 .pf-detail-page:has(.pd-page-layout) {
   padding: calc(var(--nav-height) + 60px) 0 60px;
