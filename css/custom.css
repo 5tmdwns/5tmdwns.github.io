@@ -1712,16 +1712,18 @@ body.pf-page-exit {
   .pd-mid-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; grid-template-rows: auto !important; gap: 3pt !important; height: auto !important; }
   .pd-mid-cell { overflow: hidden !important; height: auto !important; padding: 4pt 5pt !important; }
 
-  /* 이미지 - 한 페이지에 맞도록 엄격히 제한 */
-  img { max-height: 35mm !important; height: auto !important; width: auto !important; max-width: 100% !important; object-fit: contain !important; display: block !important; }
+  /* 이미지 기본 */
+  img { height: auto !important; max-width: 100% !important; object-fit: contain !important; display: block !important; }
   .pd-photo-grid { display: grid !important; grid-template-columns: repeat(3,1fr) !important; gap: 2pt !important; }
-  .pd-photo-grid img { max-height: 18mm !important; width: 100% !important; }
-  .pd-mid-cell img { max-height: 33mm !important; max-width: 100% !important; }
-  .pd-row-bot img { max-height: 25mm !important; width: 100% !important; }
+  .pd-photo-grid img { max-height: 16mm !important; width: 100% !important; }
+  .pd-mid-cell img { max-height: 30mm !important; width: 100% !important; }
+  .pd-row-bot img { max-height: 22mm !important; width: 100% !important; }
 
-  /* 이미지+문구 나란히 */
-  .pd-img-text-row { display: flex !important; align-items: center !important; gap: 6pt !important; }
-  .pd-img-fixed { width: 35% !important; flex-shrink: 0 !important; max-height: 28mm !important; }
+  /* 이미지+문구 나란히 - 명시적으로 flex 유지 */
+  .pd-img-text-row { display: flex !important; flex-direction: row !important; align-items: center !important; gap: 6pt !important; flex-wrap: nowrap !important; }
+  .pd-img-text-row .pd-img-fixed { width: 35% !important; max-width: 35% !important; flex-shrink: 0 !important; max-height: 25mm !important; }
+  .pd-img-text-row ul { flex: 1 !important; font-size: 7pt !important; color: #666 !important; padding-left: 10pt !important; margin: 0 !important; line-height: 1.5 !important; }
+  .pd-img-text-row li { margin-bottom: 2pt !important; }
 
   /* 코드 블록 */
   .pd-code { font-size: 5.5pt !important; white-space: pre-wrap !important; overflow: visible !important; word-break: break-all !important; line-height: 1.4 !important; padding: 4pt !important; }
