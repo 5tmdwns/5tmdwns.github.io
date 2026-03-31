@@ -1539,7 +1539,8 @@ body.pf-page-exit {
 .pd-mid-cell {
   background: #ffffff;
   padding: 10px 12px;
-  overflow: hidden;
+  overflow: visible;
+  height: auto;
 }
 
 .pd-mid-cell img {
