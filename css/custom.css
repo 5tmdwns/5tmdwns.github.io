@@ -1736,6 +1736,7 @@ body.pf-page-exit {
   .pd-section { margin-bottom: 3pt !important; }
   .pd-section-title { font-size: 7pt !important; margin-bottom: 2pt !important; padding-bottom: 1pt !important; color: #4BAEE8 !important; }
   .pd-section p, .pd-section ul { font-size: 7pt !important; line-height: 1.35 !important; }
+  .pd-link { font-size: 7pt !important; margin-bottom: 2pt !important; }
   .pd-section li { margin-bottom: 1pt !important; }
   .pd-row-top .pd-section, .pd-row-bot .pd-section { margin-bottom: 0 !important; }
 
