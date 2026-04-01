@@ -476,47 +476,171 @@
 
         <!-- ===== PROJECT 8: 임베디드시스템설계 프로젝트 2 ===== -->
         <div class="pd-project" data-id="8">
-          <div class="pd-body">
+          <div class="pd-page-layout">
 
-            <div class="pd-left">
+            <!-- 상단: 요구사항 | 활동 기간 | 담당 역할 -->
+            <div class="pd-row-top">
               <section class="pd-section">
-                <h2 class="pd-section-title">개요</h2>
-                <p><!-- 프로젝트를 한두 문장으로 소개하세요. --></p>
-              </section>
-              <section class="pd-section">
-                <h2 class="pd-section-title">주요 내용</h2>
+                <h2 class="pd-section-title">요구사항</h2>
                 <ul>
-                  <li><!-- 핵심 작업 1 --></li>
-                  <li><!-- 핵심 작업 2 --></li>
-                  <li><!-- 핵심 작업 3 --></li>
+                  <li>FreeRTOS를 활용하여 다중 보드 환경에서 공유 자원 접근에 따른 Dead Lock, Data Corruption, Race Condition, Priority Inversion 문제 해결과 OLED및 기타 디스플레이를 활용한 시각 정보 제공 시스템 설계</li>
                 </ul>
               </section>
               <section class="pd-section">
-                <h2 class="pd-section-title">결과 / 성과</h2>
-                <p><!-- 최종 결과나 배운 점을 작성하세요. --></p>
-              </section>
-            </div>
-
-            <div class="pd-right">
-              <section class="pd-section">
-                <h2 class="pd-section-title">사용 기술</h2>
-                <div class="pd-tags">
-                  <!-- <span class="pd-tag">기술명</span> -->
-                </div>
+                <h2 class="pd-section-title">활동 기간</h2>
+                <p>2024.10.25 ~ 2024.11.22</p>
               </section>
               <section class="pd-section">
                 <h2 class="pd-section-title">담당 역할</h2>
-                <p><!-- 역할 --></p>
+                <ul>
+                  <li>주방 관리 시스템(STM32 F103RB) SW 컴포넌트 개발</li>
+                  <li>디스플레이(STM32 F407VG) SW 컴포넌트 개발</li>
+                </ul>
+              </section>
+            </div>
+
+            <!-- 중단: 2×2 그리드 -->
+            <div class="pd-row-mid">
+              <div class="pd-mid-grid">
+
+                <!-- 좌상: 요구사항 분석 + 주방 관리 시스템(STM32 F103RB) SW 컴포넌트 -->
+                <div class="pd-mid-cell">
+                  <h2 class="pd-section-title">요구사항 분석</h2>
+                  <figure style="margin:0 0 10px 0; text-align:center;">
+                    <img src="images/id8/id8_Requirement.jpeg" alt="요구사항 분석" class="pd-lightbox-img" style="width:100%; height:160px; object-fit:contain; cursor:pointer;">
+                  </figure>
+                  <h2 class="pd-section-title" style="margin-top:8px;">주방 관리 시스템(STM32 F103RB) SW 컴포넌트</h2>
+                  <div class="pd-photo-grid" style="display:grid; grid-template-columns:repeat(2,1fr); gap:6px; margin-top:8px;">
+                    <figure style="margin:0; text-align:center;">
+                      <img src="images/id8/id8_Kitchen_Circuit.png" alt="Kitchen Circuit" class="pd-lightbox-img" style="width:100%; height:230px; object-fit:contain; cursor:pointer;">
+                      <figcaption style="font-size:0.72rem; color:var(--gray); text-align:center; margin-top:4px;">주방 CAD 회로도</figcaption>
+                    </figure>
+                    <figure style="margin:0; text-align:center;">
+                      <img src="images/id8/id8_Kitchen_Task_Timing.png" alt="Kitchen Task Timing Diagram" class="pd-lightbox-img" style="width:100%; height:230px; object-fit:contain; cursor:pointer;">
+                      <figcaption style="font-size:0.72rem; color:var(--gray); text-align:center; margin-top:4px;">주방 Task Timing Diagram</figcaption>
+                    </figure>
+                  </div>
+                  <table style="width:100%; border-collapse:collapse; margin-top:10px; font-size:0.72rem;">
+                    <thead>
+                      <tr style="background:var(--card-bg, #1e1e2e); border-bottom:2px solid var(--accent);">
+                        <th style="padding:6px 8px; text-align:center; color:var(--light); font-weight:600;">Task Priority</th>
+                        <th style="padding:6px 8px; text-align:center; color:var(--light); font-weight:600;">Task</th>
+                        <th style="padding:6px 8px; text-align:center; color:var(--light); font-weight:600;">Execution</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr style="border-bottom:1px solid rgba(255,255,255,0.08);">
+                        <td style="padding:5px 8px; text-align:center; color:var(--gray);">3</td>
+                        <td style="padding:5px 8px; text-align:center;"><code style="background:rgba(255,255,255,0.08); border-radius:3px; padding:2px 6px; font-size:0.7rem;">copyTask</code></td>
+                        <td style="padding:5px 8px; text-align:center; color:var(--gray);">받은 데이터 공유자원으로 복사</td>
+                      </tr>
+                      <tr style="border-bottom:1px solid rgba(255,255,255,0.08);">
+                        <td style="padding:5px 8px; text-align:center; color:var(--gray);">2</td>
+                        <td style="padding:5px 8px; text-align:center;"><code style="background:rgba(255,255,255,0.08); border-radius:3px; padding:2px 6px; font-size:0.7rem;">cookTask</code></td>
+                        <td style="padding:5px 8px; text-align:center; color:var(--gray);">재료관리 및 요리시작</td>
+                      </tr>
+                      <tr style="border-bottom:1px solid rgba(255,255,255,0.08);">
+                        <td style="padding:5px 8px; text-align:center; color:var(--gray);">1</td>
+                        <td style="padding:5px 8px; text-align:center;"><code style="background:rgba(255,255,255,0.08); border-radius:3px; padding:2px 6px; font-size:0.7rem;">lcdTask</code></td>
+                        <td style="padding:5px 8px; text-align:center; color:var(--gray);">재료 및 타이머 LCD 동작</td>
+                      </tr>
+                      <tr>
+                        <td style="padding:5px 8px; text-align:center; color:var(--gray);">1</td>
+                        <td style="padding:5px 8px; text-align:center;"><code style="background:rgba(255,255,255,0.08); border-radius:3px; padding:2px 6px; font-size:0.7rem;">buzzerTask</code></td>
+                        <td style="padding:5px 8px; text-align:center; color:var(--gray);">요리 완료 후 동작</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- 우상: 디스플레이 SW 컴포넌트 -->
+                <div class="pd-mid-cell">
+                  <h2 class="pd-section-title">디스플레이(STM32 F407VG) SW 컴포넌트</h2>
+                  <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:6px; margin-top:8px;">
+                    <figure style="margin:0; text-align:center;">
+                      <img src="images/id8/id8_Display_Circuit.png" alt="Display Circuit" class="pd-lightbox-img" style="width:100%; height:180px; object-fit:contain; cursor:pointer;">
+                      <figcaption style="font-size:0.72rem; color:var(--gray); text-align:center; margin-top:4px;">디스플레이 CAD 회로도</figcaption>
+                    </figure>
+                    <figure style="margin:0; text-align:center;">
+                      <img src="images/id8/id8_Display_Config.png" alt="Display Config" class="pd-lightbox-img" style="width:100%; height:180px; object-fit:contain; cursor:pointer;">
+                      <figcaption style="font-size:0.72rem; color:var(--gray); text-align:center; margin-top:4px;">디스플레이 SPI 설정</figcaption>
+                    </figure>
+                    <figure style="margin:0; text-align:center;">
+                      <img src="images/id8/id8_Display_Ex.jpg" alt="Display Example" class="pd-lightbox-img" style="width:100%; height:180px; object-fit:contain; cursor:pointer;">
+                      <figcaption style="font-size:0.72rem; color:var(--gray); text-align:center; margin-top:4px;">디스플레이 출력 예시</figcaption>
+                    </figure>
+                  </div>
+                </div>
+
+                <!-- 좌하: 회로도 + STM32 F407VG 사용 이유 -->
+                <div class="pd-mid-cell" style="height:auto;">
+                  <!-- 전체 회로도 -->
+                  <h2 class="pd-section-title">전체 회로도</h2>
+                  <figure style="margin:0 0 10px 0; text-align:center;">
+                    <img src="images/id8/id8_Circuit_All.png" alt="전체 회로도" class="pd-lightbox-img" style="width:100%; height:160px; object-fit:contain; cursor:pointer;">
+                    <figcaption style="font-size:0.72rem; color:var(--gray); text-align:center; margin-top:4px;">전체 시스템 회로도</figcaption>
+                  </figure>
+                  <!-- STM32 F407VG 사용 이유 -->
+                  <h2 class="pd-section-title" style="margin-top:8px;">STM32 F407VG 사용 이유?</h2>
+                  <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:6px;">
+                    <figure style="margin:0; text-align:center;">
+                      <img src="images/id8/id8_STM32F103RB_Spec.png" alt="STM32F103RB Spec" class="pd-lightbox-img" style="width:100%; height:120px; object-fit:contain; cursor:pointer;">
+                      <figcaption style="font-size:0.72rem; color:var(--gray); text-align:center; margin-top:4px;">STM32 F103RB 스펙<br>(Flash: 128KB, RAM: 20KB)</figcaption>
+                    </figure>
+                    <figure style="margin:0; text-align:center;">
+                      <img src="images/id8/id8_STM32F407VGT6_Spec.png" alt="STM32F407VGT6 Spec" class="pd-lightbox-img" style="width:100%; height:120px; object-fit:contain; cursor:pointer;">
+                      <figcaption style="font-size:0.72rem; color:var(--gray); text-align:center; margin-top:4px;">STM32 F407VGT6 스펙<br>(Flash: 1MB, RAM: 192KB)</figcaption>
+                    </figure>
+                  </div>
+                  <p style="font-size:0.75rem; color:var(--gray); margin-top:8px; line-height:1.7;">
+                    코스 요리 사진 출력을 위해 사진 저장을 위한 Flash Memory 부족
+                  </p>
+                </div>
+
+                <!-- 우하: Trouble Shooting -->
+                <div class="pd-mid-cell" style="height:auto;">
+                  <h2 class="pd-section-title">TROUBLE SHOOTING</h2>
+                  <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:6px; margin-top:8px;">
+                    <figure style="margin:0; text-align:center;">
+                      <img src="images/id8/id8_Fault_Display.jpg" alt="Fault Display" class="pd-lightbox-img" style="width:100%; height:160px; object-fit:contain; cursor:pointer;">
+                      <figcaption style="font-size:0.72rem; color:var(--gray); text-align:center; margin-top:4px;">사진 반전 문제</figcaption>
+                    </figure>
+                    <figure style="margin:0; text-align:center;">
+                      <img src="images/id8/id8_Fault_Python_Script.png" alt="Fault Python Script" class="pd-lightbox-img" style="width:100%; height:160px; object-fit:contain; cursor:pointer;">
+                      <figcaption style="font-size:0.72rem; color:var(--gray); text-align:center; margin-top:4px;">Python 변환 스크립트</figcaption>
+                    </figure>
+                    <figure style="margin:0; text-align:center;">
+                      <img src="images/id8/id8_Fault_Endian.png" alt="Fault Endian" class="pd-lightbox-img" style="width:100%; height:160px; object-fit:contain; cursor:pointer;">
+                      <figcaption style="font-size:0.72rem; color:var(--gray); text-align:center; margin-top:4px;">빅 엔디안 문제 해결</figcaption>
+                    </figure>
+                  </div>
+                  <p style="font-size:0.75rem; color:var(--gray); margin-top:8px; line-height:1.7;">
+                    Python 스크립트를 통해 이미지 사진을 RGB565 Format으로 변경 후 2차원 배열형태로 ST7789 모듈로 사진을 출력하니 사진이 반전되는 문제 발견 -&gt; 이는 ST7789 모듈의 데이터 저장 방식이 빅 엔디안이어서 발생하는 문제였음.
+                  </p>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- 하단: 결과물 | 성과 | 링크 -->
+            <div class="pd-row-bot">
+              <section class="pd-section">
+                <h2 class="pd-section-title">결과물</h2>
+                <img src="images/id8/id8_Result.png" alt="Result" class="pd-lightbox-img" style="width:100%; max-height:210px; object-fit:contain; border-radius:4px; cursor:pointer; margin-top:4px;">
+              </section>
+              <section class="pd-section">
+                <h2 class="pd-section-title">성과</h2>
+                <p>프로젝트 1등(95점)</p>
               </section>
               <section class="pd-section">
                 <h2 class="pd-section-title">링크</h2>
-                <!-- <a href="https://github.com/5tmdwns/..." class="pd-link" target="_blank">GitHub ↗</a> -->
+                <a href="https://github.com/5tmdwns/2024-2_ESD_Project2.git" class="pd-link" target="_blank">GitHub ↗</a>
+                <a href="https://github.com/5tmdwns/2024-2_ESD_Project2?tab=readme-ov-file#6-%EC%8B%9C%EC%97%B0%EC%98%81%EC%83%81" class="pd-link" target="_blank">시연영상 ↗</a>
               </section>
             </div>
 
           </div>
         </div>
-
 
         <!-- ===== PROJECT 9: 임베디드시스템설계 프로젝트 3 ===== -->
         <div class="pd-project" data-id="9">
