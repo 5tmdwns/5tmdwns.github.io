@@ -1726,7 +1726,7 @@ body.pf-page-exit {
   .pd-mid-cell .pd-img-text-row li { margin-bottom: 1pt !important; }
 
   /* 코드 블록 */
-  .pd-code { font-size: 5pt !important; white-space: pre-wrap !important; overflow: hidden !important; word-break: break-all !important; line-height: 1.3 !important; padding: 3pt !important; max-height: 50mm !important; }
+  .pd-code { font-size: 4pt !important; white-space: pre-wrap !important; overflow: hidden !important; word-break: break-all !important; line-height: 1.3 !important; padding: 3pt !important; max-height: 40mm !important; }
   .pd-code-caption { font-size: 5pt !important; margin-top: 1pt !important; }
 
   /* pd-mid-cell 내 일반 p (Trouble Shooting 설명 등) */
