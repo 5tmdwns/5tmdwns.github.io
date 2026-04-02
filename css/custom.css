@@ -1745,4 +1745,84 @@ body.pf-page-exit {
   .pd-tag { background: rgba(75,174,232,0.08) !important; border: 1pt solid rgba(75,174,232,0.3) !important; }
   .pf-detail-line { background: #4BAEE8 !important; }
   .pd-section-title { color: #4BAEE8 !important; }
+
+  /* ===== Home (index.html) 프린트 ===== */
+  .pf-hero {
+    min-height: unset !important;
+    padding: 8mm 0 !important;
+    background: #fff !important;
+  }
+  .pf-hero-bg-shape { display: none !important; }
+  .pf-hero-sub { color: #888 !important; font-size: 9pt !important; margin-bottom: 4pt !important; }
+  .pf-hero-name { color: #111 !important; font-size: 28pt !important; margin-bottom: 4pt !important; }
+  .pf-hero-title { color: #111 !important; font-size: 13pt !important; margin-bottom: 6pt !important; }
+  .pf-hero-title span { color: #4BAEE8 !important; }
+  .pf-hero-btns { display: none !important; }
+  .pf-hero-photo { max-height: 90mm !important; width: auto !important; border-radius: 50% !important; }
+
+  /* ===== About (about.html) 프린트 ===== */
+  .pf-page {
+    padding: 6mm 0 !important;
+    background: #fff !important;
+  }
+  /* 사진·이름·역할 */
+  .pf-avatar { max-height: 55mm !important; width: auto !important; border-radius: 50% !important; display: block !important; margin: 0 auto 4pt !important; }
+  .pf-about-name { color: #111 !important; font-size: 14pt !important; text-align: center !important; margin-bottom: 2pt !important; }
+  .pf-about-role { color: #4BAEE8 !important; font-size: 9pt !important; text-align: center !important; margin-bottom: 4pt !important; }
+  .pf-stats-row { display: flex !important; gap: 8pt !important; justify-content: center !important; margin-bottom: 6pt !important; }
+  .pf-stat-item { text-align: center !important; }
+  .pf-stat-num { color: #4BAEE8 !important; font-size: 14pt !important; font-weight: 700 !important; display: block !important; }
+  .pf-stat-label { color: #555 !important; font-size: 7pt !important; }
+
+  /* 탭 버튼 숨기고 모든 탭 콘텐츠 표시 */
+  .pf-tab-row { display: none !important; }
+  .pf-tab-pane { display: block !important; margin-bottom: 6pt !important; }
+  .pf-tab-pane:not(.active) { display: block !important; }
+
+  /* 탭 제목 */
+  .pf-tab-pane::before {
+    display: block !important;
+    font-size: 9pt !important;
+    font-weight: 700 !important;
+    color: #4BAEE8 !important;
+    border-bottom: 0.5pt solid #4BAEE8 !important;
+    margin-bottom: 4pt !important;
+    padding-bottom: 2pt !important;
+  }
+  #tab-skills::before   { content: 'Skills'; }
+  #tab-education::before { content: 'Education'; }
+  #tab-interest::before  { content: 'Interest'; }
+
+  /* 스킬 카드 */
+  .pf-skills-cat { color: #4BAEE8 !important; font-size: 8pt !important; margin-bottom: 4pt !important; }
+  .pf-skill-card-grid { display: flex !important; flex-wrap: wrap !important; gap: 3pt !important; }
+  .pf-skill-card {
+    background: #f5f5f5 !important;
+    border: 0.5pt solid #ddd !important;
+    border-radius: 3pt !important;
+    padding: 2pt 4pt !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 3pt !important;
+    font-size: 6.5pt !important;
+    color: #333 !important;
+  }
+  .pf-skill-card img { width: 10pt !important; height: 10pt !important; object-fit: contain !important; }
+  .pf-skill-name { color: #333 !important; font-size: 6.5pt !important; }
+
+  /* 타임라인 */
+  .pf-timeline { padding-left: 10pt !important; }
+  .pf-timeline-item { margin-bottom: 6pt !important; position: relative !important; }
+  .pf-timeline-dot { background: #4BAEE8 !important; width: 6pt !important; height: 6pt !important; border-radius: 50% !important; position: absolute !important; left: -10pt !important; top: 3pt !important; }
+  .pf-timeline-date { color: #888 !important; font-size: 7pt !important; display: block !important; margin-bottom: 1pt !important; }
+  .pf-timeline-content h3 { color: #111 !important; font-size: 9pt !important; margin-bottom: 1pt !important; }
+  .pf-timeline-content p { color: #555 !important; font-size: 8pt !important; margin: 0 !important; }
+
+  /* Interest */
+  .pf-traits { padding-left: 10pt !important; }
+  .pf-traits li { font-size: 7.5pt !important; color: #333 !important; margin-bottom: 4pt !important; line-height: 1.5 !important; }
+  .pf-traits strong { color: #111 !important; }
+
+  /* 색상 강제 출력 */
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
 }
