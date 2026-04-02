@@ -1875,6 +1875,43 @@ body.pf-page-exit {
   .pf-skill-card img { width: 10pt !important; height: 10pt !important; object-fit: contain !important; }
   .pf-skill-name { color: #333 !important; font-size: 6.5pt !important; }
 
+  /* Wide 카드 (Vector, Siemens, Xilinx, Synopsys) - 일반 카드와 동일한 크기로 */
+  .pf-skill-card.pf-skill-card-wide {
+    flex-direction: row !important;
+    padding: 2pt 4pt !important;
+    gap: 3pt !important;
+    align-items: center !important;
+  }
+  .pf-skill-card.pf-skill-card-wide img {
+    width: 10pt !important;
+    height: 10pt !important;
+    object-fit: contain !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    border-radius: 2pt !important;
+    background: transparent !important;
+  }
+  .pf-skill-card-left {
+    flex-direction: row !important;
+    min-width: auto !important;
+    gap: 2pt !important;
+    align-items: center !important;
+  }
+  .pf-skill-card-left .pf-skill-name {
+    font-size: 6.5pt !important;
+    white-space: nowrap !important;
+  }
+  .pf-skill-card-right {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 1pt 5pt !important;
+  }
+  .pf-skill-card-right span {
+    font-size: 6pt !important;
+    color: #666 !important;
+    line-height: 1.4 !important;
+  }
+
   /* 타임라인 */
   .pf-timeline { padding-left: 10pt !important; }
   .pf-timeline-item { margin-bottom: 6pt !important; position: relative !important; }
