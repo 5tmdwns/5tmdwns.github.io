@@ -27,13 +27,20 @@
       transition: color 0.2s;
     }
     .pf-pdf-back:hover { color: #fff; }
-    .pf-pdf-frame {
+    .pf-pdf-pages {
       width: 100%;
       max-width: 960px;
-      height: 85vh;
-      border: none;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.6);
-      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    .pf-pdf-pages canvas {
+      width: 100%;
+      height: auto;
+      display: block;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+      border-radius: 2px;
     }
     .pf-pdf-missing {
       display: flex;
@@ -77,7 +84,7 @@
   <section class="pf-pdf-section">
     <a href="portfolio.html" class="pf-pdf-back pf-nav-item">&#8592; Works</a>
 
-    <iframe class="pf-pdf-frame" id="pdf-frame" src="" title="PDF Viewer"></iframe>
+    <div class="pf-pdf-pages" id="pdf-pages"></div>
 
     <div class="pf-pdf-missing" id="pdf-missing" style="display:none;">
       <span>📄</span>
@@ -98,6 +105,7 @@
 
   <script src="js/jquery.min.js"></script>
   <script src="js/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
   <script>
     window.addEventListener('scroll', function() {
       document.getElementById('pf-nav').classList.toggle('pf-nav-scrolled', window.scrollY > 50);
@@ -123,16 +131,45 @@
       });
     });
 
-    // PDF 로드
+    // PDF 렌더링
     var params = new URLSearchParams(window.location.search);
     var id = params.get('id');
 
     if (id) {
       var pdfPath = id + '.pdf';
       document.title = '오승준 | 포트폴리오 #' + id;
-      document.getElementById('pdf-frame').src = pdfPath;
+
+      pdfjsLib.GlobalWorkerOptions.workerSrc =
+        'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+      var container = document.getElementById('pdf-pages');
+      var scale = 2; // 고해상도 렌더링
+
+      pdfjsLib.getDocument(pdfPath).promise.then(function(pdf) {
+        var renderPage = function(pageNum) {
+          return pdf.getPage(pageNum).then(function(page) {
+            var viewport = page.getViewport({ scale: scale });
+            var canvas = document.createElement('canvas');
+            canvas.width = viewport.width;
+            canvas.height = viewport.height;
+            container.appendChild(canvas);
+            return page.render({ canvasContext: canvas.getContext('2d'), viewport: viewport }).promise;
+          });
+        };
+
+        var chain = Promise.resolve();
+        for (var i = 1; i <= pdf.numPages; i++) {
+          (function(n) {
+            chain = chain.then(function() { return renderPage(n); });
+          })(i);
+        }
+      }).catch(function() {
+        container.style.display = 'none';
+        document.getElementById('pdf-missing').style.display = 'flex';
+        document.getElementById('pdf-missing-name').textContent = pdfPath;
+      });
     } else {
-      document.getElementById('pdf-frame').style.display = 'none';
+      document.getElementById('pdf-pages').style.display = 'none';
       document.getElementById('pdf-missing').style.display = 'flex';
       document.getElementById('pdf-missing-name').textContent = 'id 파라미터가 없습니다.';
     }
