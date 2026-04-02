@@ -92,6 +92,12 @@
       document.body.classList.remove('pf-page-exit');
     });
 
+    // 인쇄 시 nav 표시
+    document.body.classList.add('print-show-nav');
+    window.addEventListener('beforeprint', function() {
+      document.getElementById('pf-nav').classList.remove('pf-nav-scrolled');
+    });
+
     function navigateTo(url) {
       document.body.classList.add('pf-page-exit');
       setTimeout(function() { window.location.href = url; }, 350);

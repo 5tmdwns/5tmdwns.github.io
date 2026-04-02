@@ -1680,12 +1680,15 @@ body.pf-page-exit {
 
 @media print {
   /* UI 숨기기 */
-  .pf-nav,
   .pf-sidenav,
   .pf-detail-back,
   .pd-print-btn,
   .pf-footer,
   #pd-lightbox { display: none !important; }
+
+  /* nav는 기본 숨기되, Home(index.html)에서는 표시 */
+  .pf-nav { display: none !important; }
+  body.print-show-nav .pf-nav { display: flex !important; }
 
   /* 기본 리셋 */
   * { box-sizing: border-box !important; }
@@ -1746,19 +1749,15 @@ body.pf-page-exit {
   .pf-detail-line { background: #4BAEE8 !important; }
   .pd-section-title { color: #4BAEE8 !important; }
 
-  /* ===== Home (index.html) 프린트 ===== */
+  /* ===== Home (index.html) 프린트 — 화면 그대로 ===== */
   .pf-hero {
-    min-height: unset !important;
-    padding: 8mm 0 !important;
-    background: #fff !important;
+    min-height: 100vh !important;
+    display: flex !important;
+    align-items: center !important;
   }
-  .pf-hero-bg-shape { display: none !important; }
-  .pf-hero-sub { color: #888 !important; font-size: 9pt !important; margin-bottom: 4pt !important; }
-  .pf-hero-name { color: #111 !important; font-size: 28pt !important; margin-bottom: 4pt !important; }
-  .pf-hero-title { color: #111 !important; font-size: 13pt !important; margin-bottom: 6pt !important; }
-  .pf-hero-title span { color: #4BAEE8 !important; }
-  .pf-hero-btns { display: none !important; }
-  .pf-hero-photo { max-height: 90mm !important; width: auto !important; border-radius: 50% !important; }
+  .pf-hero-bg-shape { display: block !important; }
+  .pf-hero-photo-col { display: flex !important; }
+  .pf-hero-photo { display: block !important; }
 
   /* ===== About (about.html) 프린트 ===== */
   .pf-page {
