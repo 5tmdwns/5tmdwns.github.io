@@ -45,10 +45,21 @@
       color: rgba(255,255,255,0.3);
       font-size: 0.8rem;
     }
-    .pf-pdf-frame {
+    .pf-pdf-canvas {
       flex: 1;
+      background: #525659;
+      overflow-y: auto;
+      display: flex;
+      justify-content: center;
+      padding: 32px 24px;
+    }
+    .pf-pdf-frame {
       width: 100%;
+      max-width: 900px;
+      height: 100%;
+      min-height: 800px;
       border: none;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.5);
       display: block;
     }
     .pf-pdf-missing {
@@ -60,6 +71,7 @@
       color: rgba(255,255,255,0.4);
       font-size: 1rem;
       gap: 8px;
+      background: #525659;
     }
     .pf-pdf-missing span {
       font-size: 2rem;
@@ -75,7 +87,9 @@
       <span class="pf-pdf-id" id="pdf-id-label"></span>
     </div>
 
-    <iframe class="pf-pdf-frame" id="pdf-frame" src="" title="PDF Viewer"></iframe>
+    <div class="pf-pdf-canvas" id="pdf-canvas">
+      <iframe class="pf-pdf-frame" id="pdf-frame" src="" title="PDF Viewer"></iframe>
+    </div>
 
     <div class="pf-pdf-missing" id="pdf-missing" style="display:none;">
       <span>📄</span>
@@ -99,12 +113,12 @@
 
       // PDF를 불러오지 못한 경우 안내 메시지 표시
       frame.addEventListener('error', function() {
-        frame.style.display = 'none';
+        document.getElementById('pdf-canvas').style.display = 'none';
         document.getElementById('pdf-missing').style.display = 'flex';
         document.getElementById('pdf-missing-name').textContent = pdfPath;
       });
     } else {
-      document.getElementById('pdf-frame').style.display = 'none';
+      document.getElementById('pdf-canvas').style.display = 'none';
       document.getElementById('pdf-missing').style.display = 'flex';
       document.getElementById('pdf-missing-name').textContent = 'id 파라미터가 없습니다.';
     }
