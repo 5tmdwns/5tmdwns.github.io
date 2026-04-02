@@ -30,11 +30,13 @@
       width: 100%;
       display: flex;
       flex-direction: column;
-      align-items: stretch;
+      align-items: center;
       gap: 12px;
     }
     .pf-pdf-pages canvas {
-      width: 100%;
+      max-width: 100%;
+      max-height: calc(100vh - 160px);
+      width: auto;
       height: auto;
       display: block;
       box-shadow: 0 4px 24px rgba(0,0,0,0.5);
