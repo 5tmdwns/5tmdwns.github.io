@@ -1775,13 +1775,20 @@ body.pf-page-exit {
   .pf-detail-line { background: #4BAEE8 !important; }
   .pd-section-title { color: #4BAEE8 !important; }
 
-  /* ===== Home (index.html) 프린트 — 화면 그대로 ===== */
+  /* ===== Home (index.html) 프린트 — 화면 그대로, 1페이지 ===== */
+  body.print-show-nav { overflow: hidden !important; }
+
+  /* nav 높이 축소 */
+  body.print-show-nav .pf-nav-inner { height: 12mm !important; }
+
   .pf-hero {
-    min-height: 190mm !important;
+    min-height: 0 !important;
+    height: 178mm !important;  /* 194mm - nav 12mm - 여유 4mm */
     display: flex !important;
     align-items: center !important;
     position: relative !important;
-    overflow: visible !important;
+    overflow: hidden !important;
+    padding: 0 !important;
   }
   /* 배경 도형 */
   .pf-hero-bg-shape {
@@ -1793,20 +1800,20 @@ body.pf-page-exit {
     border-radius: 0 0 0 55% / 0 0 0 35% !important;
   }
   /* Bootstrap col-lg-6 강제 2열 */
-  .pf-hero .row { display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important; align-items: center !important; }
+  .pf-hero .row { display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important; align-items: center !important; height: 100% !important; }
   .pf-hero .col-lg-6 { width: 50% !important; flex: 0 0 50% !important; max-width: 50% !important; }
   /* 텍스트 */
-  .pf-hero-sub  { color: var(--sky) !important; letter-spacing: 3px !important; }
-  .pf-hero-name { color: var(--text) !important; }
-  .pf-hero-title { color: var(--text) !important; }
+  .pf-hero-sub  { color: var(--sky) !important; letter-spacing: 3px !important; font-size: 8pt !important; }
+  .pf-hero-name { color: var(--text) !important; font-size: 32pt !important; }
+  .pf-hero-title { color: var(--text) !important; font-size: 13pt !important; }
   .pf-hero-title span { color: var(--sky) !important; }
   /* 버튼 */
-  .pf-hero-btns { display: flex !important; }
+  .pf-hero-btns { display: flex !important; gap: 8pt !important; margin-top: 12pt !important; }
   /* 사진 */
-  .pf-hero-photo-col { display: flex !important; justify-content: center !important; }
+  .pf-hero-photo-col { display: flex !important; justify-content: center !important; align-items: center !important; }
   .pf-hero-photo {
     display: block !important;
-    width: 65mm !important; height: 65mm !important;
+    width: 60mm !important; height: 60mm !important;
     border-radius: 50% !important;
     border: 4pt solid #4BAEE8 !important;
     object-fit: cover !important;
