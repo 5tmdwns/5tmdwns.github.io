@@ -51,6 +51,40 @@
       height: 40vh;
     }
     .pf-pdf-missing span { font-size: 2rem; }
+
+    /* 라이트박스 */
+    .pf-lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0,0,0,0.92);
+      cursor: zoom-out;
+      overflow: hidden;
+    }
+    .pf-lightbox.open { display: flex; align-items: center; justify-content: center; }
+    .pf-lightbox img {
+      display: block;
+      max-width: none;
+      transform-origin: center center;
+      cursor: grab;
+      user-select: none;
+      transition: transform 0.05s linear;
+    }
+    .pf-lightbox img.dragging { cursor: grabbing; }
+    .pf-lightbox-close {
+      position: fixed;
+      top: 20px;
+      right: 24px;
+      color: rgba(255,255,255,0.7);
+      font-size: 2rem;
+      cursor: pointer;
+      line-height: 1;
+      z-index: 10000;
+      transition: color 0.2s;
+    }
+    .pf-lightbox-close:hover { color: #fff; }
+    .pf-pdf-pages canvas { cursor: zoom-in; }
   </style>
 </head>
 <body>
@@ -92,6 +126,12 @@
       <small id="pdf-missing-name"></small>
     </div>
   </section>
+
+  <!-- LIGHTBOX -->
+  <div class="pf-lightbox" id="pf-lightbox">
+    <span class="pf-lightbox-close" id="pf-lightbox-close">&#215;</span>
+    <img id="pf-lightbox-img" src="" alt="PDF 확대보기" draggable="false">
+  </div>
 
   <!-- SIDEBAR -->
   <nav class="pf-sidenav" id="pf-sidenav">
@@ -164,7 +204,9 @@
               canvas.style.width  = (vp.width  / dpr) + 'px';
               canvas.style.height = (vp.height / dpr) + 'px';
               container.appendChild(canvas);
-              return page.render({ canvasContext: canvas.getContext('2d'), viewport: vp }).promise;
+              return page.render({ canvasContext: canvas.getContext('2d'), viewport: vp }).promise.then(function() {
+                canvas.addEventListener('click', function() { window.openCanvasLightbox(canvas); });
+              });
             });
           });
         })(i);
@@ -185,6 +227,74 @@
         pagination.appendChild(dot);
       });
     }
+
+    // 라이트박스
+    (function() {
+      var lb      = document.getElementById('pf-lightbox');
+      var lbImg   = document.getElementById('pf-lightbox-img');
+      var lbClose = document.getElementById('pf-lightbox-close');
+      var zoom = 1, minZoom = 0.5, maxZoom = 8;
+      var tx = 0, ty = 0;
+      var dragging = false, startX, startY, startTx, startTy;
+
+      function applyTransform() {
+        lbImg.style.transform = 'translate(' + tx + 'px,' + ty + 'px) scale(' + zoom + ')';
+      }
+
+      function openLightbox(canvas) {
+        lbImg.src = canvas.toDataURL('image/png');
+        zoom = 1; tx = 0; ty = 0;
+        applyTransform();
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        lb.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      // canvas 클릭 → 라이트박스 오픈 (renderPdf에서 등록)
+      window.openCanvasLightbox = openLightbox;
+
+      lbClose.addEventListener('click', closeLightbox);
+      lb.addEventListener('click', function(e) { if (e.target === lb) closeLightbox(); });
+      document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
+
+      // 휠 줌
+      lb.addEventListener('wheel', function(e) {
+        e.preventDefault();
+        var delta = e.deltaY < 0 ? 1.15 : 0.87;
+        var newZoom = Math.min(maxZoom, Math.max(minZoom, zoom * delta));
+        // 마우스 위치 기준으로 줌
+        var rect = lb.getBoundingClientRect();
+        var mx = e.clientX - rect.width  / 2;
+        var my = e.clientY - rect.height / 2;
+        tx = mx + (tx - mx) * (newZoom / zoom);
+        ty = my + (ty - my) * (newZoom / zoom);
+        zoom = newZoom;
+        applyTransform();
+      }, { passive: false });
+
+      // 드래그 패닝
+      lbImg.addEventListener('mousedown', function(e) {
+        dragging = true;
+        startX = e.clientX; startY = e.clientY;
+        startTx = tx;       startTy = ty;
+        lbImg.classList.add('dragging');
+        e.preventDefault();
+      });
+      document.addEventListener('mousemove', function(e) {
+        if (!dragging) return;
+        tx = startTx + (e.clientX - startX);
+        ty = startTy + (e.clientY - startY);
+        applyTransform();
+      });
+      document.addEventListener('mouseup', function() {
+        dragging = false;
+        lbImg.classList.remove('dragging');
+      });
+    })();
 
     function showMissing(name) {
       container.style.display = 'none';
