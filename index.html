@@ -94,8 +94,45 @@
 
     // 인쇄 시 nav 표시
     document.body.classList.add('print-show-nav');
+
+    var _heroOrigStyle = '', _shapeOrigStyle = '', _bodyOrigStyle = '';
+
     window.addEventListener('beforeprint', function() {
       document.getElementById('pf-nav').classList.remove('pf-nav-scrolled');
+
+      var hero  = document.querySelector('.pf-hero');
+      var shape = document.querySelector('.pf-hero-bg-shape');
+
+      _heroOrigStyle  = hero.getAttribute('style')  || '';
+      _shapeOrigStyle = shape.getAttribute('style') || '';
+      _bodyOrigStyle  = document.body.getAttribute('style') || '';
+
+      // A4 가로 콘텐츠 영역(194mm) - nav(12mm) = 182mm
+      var set = function(el, props) {
+        for (var k in props) el.style.setProperty(k, props[k], 'important');
+      };
+
+      set(hero, {
+        'min-height': '0',
+        'height':     '182mm',
+        'max-height': '182mm',
+        'overflow':   'hidden',
+        'padding':    '0'
+      });
+      set(shape, {
+        'height':     '182mm',
+        'max-height': '182mm',
+        'overflow':   'hidden'
+      });
+      set(document.body, {
+        'overflow': 'hidden'
+      });
+    });
+
+    window.addEventListener('afterprint', function() {
+      document.querySelector('.pf-hero').setAttribute('style', _heroOrigStyle);
+      document.querySelector('.pf-hero-bg-shape').setAttribute('style', _shapeOrigStyle);
+      document.body.setAttribute('style', _bodyOrigStyle);
     });
 
     function navigateTo(url) {
