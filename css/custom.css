@@ -1751,13 +1751,40 @@ body.pf-page-exit {
 
   /* ===== Home (index.html) 프린트 — 화면 그대로 ===== */
   .pf-hero {
-    min-height: 100vh !important;
+    min-height: 190mm !important;
     display: flex !important;
     align-items: center !important;
+    position: relative !important;
+    overflow: visible !important;
   }
-  .pf-hero-bg-shape { display: block !important; }
-  .pf-hero-photo-col { display: flex !important; }
-  .pf-hero-photo { display: block !important; }
+  /* 배경 도형 */
+  .pf-hero-bg-shape {
+    display: block !important;
+    position: absolute !important;
+    right: 0 !important; top: 0 !important;
+    width: 46% !important; height: 100% !important;
+    background: linear-gradient(150deg, rgba(75,174,232,0.09) 0%, rgba(75,174,232,0.03) 100%) !important;
+    border-radius: 0 0 0 55% / 0 0 0 35% !important;
+  }
+  /* Bootstrap col-lg-6 강제 2열 */
+  .pf-hero .row { display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important; align-items: center !important; }
+  .pf-hero .col-lg-6 { width: 50% !important; flex: 0 0 50% !important; max-width: 50% !important; }
+  /* 텍스트 */
+  .pf-hero-sub  { color: var(--sky) !important; letter-spacing: 3px !important; }
+  .pf-hero-name { color: var(--text) !important; }
+  .pf-hero-title { color: var(--text) !important; }
+  .pf-hero-title span { color: var(--sky) !important; }
+  /* 버튼 */
+  .pf-hero-btns { display: flex !important; }
+  /* 사진 */
+  .pf-hero-photo-col { display: flex !important; justify-content: center !important; }
+  .pf-hero-photo {
+    display: block !important;
+    width: 65mm !important; height: 65mm !important;
+    border-radius: 50% !important;
+    border: 4pt solid #4BAEE8 !important;
+    object-fit: cover !important;
+  }
 
   /* ===== About (about.html) 프린트 ===== */
   .pf-page {
