@@ -1776,26 +1776,32 @@ body.pf-page-exit {
   .pd-section-title { color: #4BAEE8 !important; }
 
   /* ===== Home (index.html) 프린트 — 화면 그대로, 1페이지 ===== */
-  body.print-show-nav { overflow: hidden !important; }
+  /* footer/sidenav: height:0 + overflow:hidden으로 Chrome 페이지 분할 엔진에서 완전히 제외 */
+  body.print-show-nav .pf-footer,
+  body.print-show-nav .pf-sidenav { display: none !important; height: 0 !important; max-height: 0 !important; overflow: hidden !important; margin: 0 !important; padding: 0 !important; }
+
+  html:has(body.print-show-nav) { height: 190mm !important; max-height: 190mm !important; overflow: hidden !important; }
+  body.print-show-nav { height: 190mm !important; max-height: 190mm !important; overflow: hidden !important; margin: 0 !important; padding: 0 !important; }
 
   /* nav 높이 축소 */
   body.print-show-nav .pf-nav-inner { height: 12mm !important; }
 
   .pf-hero {
     min-height: 0 !important;
-    height: 178mm !important;  /* 194mm - nav 12mm - 여유 4mm */
+    height: 176mm !important;  /* 190mm - nav 12mm - 여유 2mm */
     display: flex !important;
     align-items: center !important;
     position: relative !important;
     overflow: hidden !important;
     padding: 0 !important;
+    contain: strict !important;  /* Chrome pagination이 내부 오버플로를 별도 페이지로 만들지 않도록 */
   }
   /* 배경 도형 */
   .pf-hero-bg-shape {
     display: block !important;
     position: absolute !important;
     right: 0 !important; top: 0 !important;
-    width: 46% !important; height: 100% !important;
+    width: 46% !important; height: 176mm !important; max-height: 176mm !important;
     background: linear-gradient(150deg, rgba(75,174,232,0.09) 0%, rgba(75,174,232,0.03) 100%) !important;
     border-radius: 0 0 0 55% / 0 0 0 35% !important;
   }

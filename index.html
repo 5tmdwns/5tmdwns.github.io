@@ -100,35 +100,60 @@
     window.addEventListener('beforeprint', function() {
       document.getElementById('pf-nav').classList.remove('pf-nav-scrolled');
 
-      var hero  = document.querySelector('.pf-hero');
-      var shape = document.querySelector('.pf-hero-bg-shape');
-      var body  = document.body;
-      var html  = document.documentElement;
+      var hero    = document.querySelector('.pf-hero');
+      var shape   = document.querySelector('.pf-hero-bg-shape');
+      var body    = document.body;
+      var html    = document.documentElement;
+      var nav     = document.getElementById('pf-nav');
+      var footer  = document.querySelector('.pf-footer');
+      var sidenav = document.getElementById('pf-sidenav');
 
       _saved = {
-        hero:  hero.getAttribute('style')  || '',
-        shape: shape.getAttribute('style') || '',
-        body:  body.getAttribute('style')  || '',
-        html:  html.getAttribute('style')  || ''
+        hero:    hero.getAttribute('style')    || '',
+        shape:   shape.getAttribute('style')   || '',
+        body:    body.getAttribute('style')    || '',
+        html:    html.getAttribute('style')    || '',
+        nav:     nav    ? (nav.getAttribute('style')    || '') : null,
+        footer:  footer ? (footer.getAttribute('style') || '') : null,
+        sidenav: sidenav ? (sidenav.getAttribute('style') || '') : null
       };
 
       var s = function(el, props) {
+        if (!el) return;
         for (var k in props) el.style.setProperty(k, props[k], 'important');
       };
 
-      // A4 가로: 210mm - 상하여백(8mm*2) - nav(12mm) = 182mm, 여유 4mm 빼서 178mm
-      s(hero,  { 'min-height':'0', 'height':'178mm', 'max-height':'178mm', 'overflow':'hidden', 'padding':'0' });
-      s(shape, { 'height':'178mm', 'max-height':'178mm', 'overflow':'hidden' });
-      // html/body 전체 높이를 A4 콘텐츠 영역으로 제한 → 빈 2페이지 방지
-      s(body,  { 'height':'194mm', 'max-height':'194mm', 'overflow':'hidden' });
-      s(html,  { 'height':'210mm', 'max-height':'210mm', 'overflow':'hidden' });
+      // footer/sidenav: CSS에서 이미 숨기지만 pagination 엔진이 레이아웃 높이로 포함시키는 것을 막기 위해 JS에서도 명시적으로 제거
+      s(footer,  { 'display':'none', 'height':'0', 'max-height':'0', 'overflow':'hidden', 'margin':'0', 'padding':'0' });
+      s(sidenav, { 'display':'none', 'height':'0', 'max-height':'0', 'overflow':'hidden', 'margin':'0', 'padding':'0' });
+
+      // nav 높이 명시
+      s(nav, { 'height':'12mm', 'max-height':'12mm', 'overflow':'hidden' });
+
+      // A4 가로: 210mm - 상하여백(8mm*2) - nav(12mm) = 182mm, 여유 6mm 빼서 176mm
+      // contain:strict → Chrome 페이지 분할 엔진이 hero 내부 오버플로를 별도 페이지로 만들지 않음
+      s(hero,  { 'min-height':'0', 'height':'176mm', 'max-height':'176mm', 'overflow':'hidden', 'padding':'0', 'contain':'strict' });
+      s(shape, { 'height':'176mm', 'max-height':'176mm', 'overflow':'hidden' });
+
+      // html/body 높이를 콘텐츠 영역(nav 12mm + hero 176mm = 188mm)으로 제한
+      s(body, { 'height':'190mm', 'max-height':'190mm', 'overflow':'hidden', 'margin':'0', 'padding':'0' });
+      s(html, { 'height':'190mm', 'max-height':'190mm', 'overflow':'hidden' });
     });
 
     window.addEventListener('afterprint', function() {
-      document.querySelector('.pf-hero').setAttribute('style', _saved.hero);
-      document.querySelector('.pf-hero-bg-shape').setAttribute('style', _saved.shape);
+      var hero    = document.querySelector('.pf-hero');
+      var shape   = document.querySelector('.pf-hero-bg-shape');
+      var nav     = document.getElementById('pf-nav');
+      var footer  = document.querySelector('.pf-footer');
+      var sidenav = document.getElementById('pf-sidenav');
+
+      hero.setAttribute('style', _saved.hero);
+      shape.setAttribute('style', _saved.shape);
       document.body.setAttribute('style', _saved.body);
       document.documentElement.setAttribute('style', _saved.html);
+      if (nav    && _saved.nav    !== null) nav.setAttribute('style', _saved.nav);
+      if (footer && _saved.footer !== null) footer.setAttribute('style', _saved.footer);
+      if (sidenav && _saved.sidenav !== null) sidenav.setAttribute('style', _saved.sidenav);
     });
 
     function navigateTo(url) {
