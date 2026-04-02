@@ -36,8 +36,6 @@
     .pf-pdf-pages canvas {
       max-width: 100%;
       max-height: calc(100vh - 160px);
-      width: auto;
-      height: auto;
       display: block;
       box-shadow: 0 4px 24px rgba(0,0,0,0.5);
       border-radius: 2px;
@@ -143,6 +141,7 @@
     var container  = document.getElementById('pdf-pages');
     var pagination = document.getElementById('pdf-pagination');
     var scale      = 2;
+    var dpr        = window.devicePixelRatio || 1;
 
     function tryLoad(path) {
       return pdfjsLib.getDocument(path).promise.then(function(pdf) { return pdf; }).catch(function() { return null; });
@@ -156,10 +155,14 @@
         (function(n) {
           chain = chain.then(function() {
             return pdf.getPage(n).then(function(page) {
-              var vp     = page.getViewport({ scale: scale });
+              // 물리 픽셀 기준으로 렌더링 (HiDPI 선명도)
+              var vp     = page.getViewport({ scale: scale * dpr });
               var canvas = document.createElement('canvas');
               canvas.width  = vp.width;
               canvas.height = vp.height;
+              // CSS 표시 크기는 dpr 나눠서 논리 픽셀로
+              canvas.style.width  = (vp.width  / dpr) + 'px';
+              canvas.style.height = (vp.height / dpr) + 'px';
               container.appendChild(canvas);
               return page.render({ canvasContext: canvas.getContext('2d'), viewport: vp }).promise;
             });
