@@ -1688,7 +1688,33 @@ body.pf-page-exit {
 
   /* nav는 기본 숨기되, Home(index.html)에서는 표시 */
   .pf-nav { display: none !important; }
-  body.print-show-nav .pf-nav { display: flex !important; }
+  body.print-show-nav .pf-nav { display: block !important; position: relative !important; }
+  body.print-show-nav .pf-nav-inner {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0 40px !important;
+  }
+  body.print-show-nav .pf-hamburger { display: none !important; }
+  body.print-show-nav .pf-nav-links {
+    display: flex !important;
+    position: static !important;
+    flex-direction: row !important;
+    gap: 28px !important;
+    background: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    width: auto !important;
+  }
+  body.print-show-nav .pf-nav-links li { width: auto !important; }
+  body.print-show-nav .pf-link {
+    display: inline !important;
+    padding: 0 0 2px !important;
+    font-size: 0.875rem !important;
+  }
+  body.print-show-nav .pf-github-link { display: flex !important; }
 
   /* 기본 리셋 */
   * { box-sizing: border-box !important; }
