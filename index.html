@@ -95,44 +95,40 @@
     // 인쇄 시 nav 표시
     document.body.classList.add('print-show-nav');
 
-    var _heroOrigStyle = '', _shapeOrigStyle = '', _bodyOrigStyle = '';
+    var _saved = {};
 
     window.addEventListener('beforeprint', function() {
       document.getElementById('pf-nav').classList.remove('pf-nav-scrolled');
 
       var hero  = document.querySelector('.pf-hero');
       var shape = document.querySelector('.pf-hero-bg-shape');
+      var body  = document.body;
+      var html  = document.documentElement;
 
-      _heroOrigStyle  = hero.getAttribute('style')  || '';
-      _shapeOrigStyle = shape.getAttribute('style') || '';
-      _bodyOrigStyle  = document.body.getAttribute('style') || '';
+      _saved = {
+        hero:  hero.getAttribute('style')  || '',
+        shape: shape.getAttribute('style') || '',
+        body:  body.getAttribute('style')  || '',
+        html:  html.getAttribute('style')  || ''
+      };
 
-      // A4 가로 콘텐츠 영역(194mm) - nav(12mm) = 182mm
-      var set = function(el, props) {
+      var s = function(el, props) {
         for (var k in props) el.style.setProperty(k, props[k], 'important');
       };
 
-      set(hero, {
-        'min-height': '0',
-        'height':     '182mm',
-        'max-height': '182mm',
-        'overflow':   'hidden',
-        'padding':    '0'
-      });
-      set(shape, {
-        'height':     '182mm',
-        'max-height': '182mm',
-        'overflow':   'hidden'
-      });
-      set(document.body, {
-        'overflow': 'hidden'
-      });
+      // A4 가로: 210mm - 상하여백(8mm*2) - nav(12mm) = 182mm, 여유 4mm 빼서 178mm
+      s(hero,  { 'min-height':'0', 'height':'178mm', 'max-height':'178mm', 'overflow':'hidden', 'padding':'0' });
+      s(shape, { 'height':'178mm', 'max-height':'178mm', 'overflow':'hidden' });
+      // html/body 전체 높이를 A4 콘텐츠 영역으로 제한 → 빈 2페이지 방지
+      s(body,  { 'height':'194mm', 'max-height':'194mm', 'overflow':'hidden' });
+      s(html,  { 'height':'210mm', 'max-height':'210mm', 'overflow':'hidden' });
     });
 
     window.addEventListener('afterprint', function() {
-      document.querySelector('.pf-hero').setAttribute('style', _heroOrigStyle);
-      document.querySelector('.pf-hero-bg-shape').setAttribute('style', _shapeOrigStyle);
-      document.body.setAttribute('style', _bodyOrigStyle);
+      document.querySelector('.pf-hero').setAttribute('style', _saved.hero);
+      document.querySelector('.pf-hero-bg-shape').setAttribute('style', _saved.shape);
+      document.body.setAttribute('style', _saved.body);
+      document.documentElement.setAttribute('style', _saved.html);
     });
 
     function navigateTo(url) {
