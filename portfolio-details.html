@@ -11,59 +11,31 @@
   <link rel="stylesheet" href="css/aos.css">
   <link rel="stylesheet" href="css/custom.css">
   <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-    }
-    .pf-pdf-wrapper {
+    .pf-pdf-section {
+      padding: 40px 24px 60px;
       display: flex;
       flex-direction: column;
-      height: 100vh;
-    }
-    .pf-pdf-topbar {
-      display: flex;
       align-items: center;
-      gap: 16px;
-      padding: 12px 24px;
-      background: var(--pf-bg, #0d0d0d);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      flex-shrink: 0;
     }
     .pf-pdf-back {
-      color: rgba(255,255,255,0.6);
+      align-self: flex-start;
+      color: rgba(255,255,255,0.5);
       text-decoration: none;
       font-size: 0.85rem;
       letter-spacing: 0.05em;
+      margin-bottom: 28px;
       transition: color 0.2s;
     }
-    .pf-pdf-back:hover {
-      color: #fff;
-    }
-    .pf-pdf-id {
-      color: rgba(255,255,255,0.3);
-      font-size: 0.8rem;
-    }
-    .pf-pdf-canvas {
-      flex: 1;
-      background: #525659;
-      overflow-y: auto;
-      display: flex;
-      justify-content: center;
-      padding: 32px 24px;
-    }
+    .pf-pdf-back:hover { color: #fff; }
     .pf-pdf-frame {
       width: 100%;
-      max-width: 900px;
-      height: 100%;
-      min-height: 800px;
+      max-width: 960px;
+      height: 85vh;
       border: none;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.5);
-      display: block;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+      border-radius: 4px;
     }
     .pf-pdf-missing {
-      flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -71,58 +43,103 @@
       color: rgba(255,255,255,0.4);
       font-size: 1rem;
       gap: 8px;
-      background: #525659;
+      height: 40vh;
     }
-    .pf-pdf-missing span {
-      font-size: 2rem;
-    }
+    .pf-pdf-missing span { font-size: 2rem; }
   </style>
 </head>
 <body>
 
-  <div class="pf-pdf-wrapper">
-
-    <div class="pf-pdf-topbar">
-      <a href="portfolio.html" class="pf-pdf-back">&#8592; Works</a>
-      <span class="pf-pdf-id" id="pdf-id-label"></span>
+  <!-- NAV -->
+  <nav class="pf-nav" id="pf-nav">
+    <div class="pf-nav-inner">
+      <a class="pf-brand" href="index.html">
+        <span class="pf-bracket">&lt;</span>5SeungJun<span class="pf-bracket">/&gt;</span>
+      </a>
+      <button class="pf-hamburger" id="pf-hamburger" aria-label="메뉴 열기">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="pf-nav-links" id="pf-nav-links">
+        <li><a href="index.html"     class="pf-link pf-nav-item">Home</a></li>
+        <li><a href="about.html"     class="pf-link pf-nav-item">About</a></li>
+        <li><a href="portfolio.html" class="pf-link pf-nav-item active">Works</a></li>
+        <li><a href="contact.html"   class="pf-link pf-nav-item">Contact</a></li>
+      </ul>
+      <a href="https://github.com/5tmdwns" target="_blank" rel="noopener" class="pf-github-link" aria-label="GitHub">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+        </svg>
+      </a>
     </div>
+  </nav>
 
-    <div class="pf-pdf-canvas" id="pdf-canvas">
-      <iframe class="pf-pdf-frame" id="pdf-frame" src="" title="PDF Viewer"></iframe>
-    </div>
+  <!-- PDF SECTION -->
+  <section class="pf-pdf-section">
+    <a href="portfolio.html" class="pf-pdf-back pf-nav-item">&#8592; Works</a>
+
+    <iframe class="pf-pdf-frame" id="pdf-frame" src="" title="PDF Viewer"></iframe>
 
     <div class="pf-pdf-missing" id="pdf-missing" style="display:none;">
       <span>📄</span>
       <p>PDF 파일을 찾을 수 없습니다.</p>
       <small id="pdf-missing-name"></small>
     </div>
+  </section>
 
-  </div>
+  <!-- SIDEBAR -->
+  <nav class="pf-sidenav" id="pf-sidenav">
+    <ul>
+      <li><a href="index.html"     data-label="Home"    class="pf-sidenav-link pf-nav-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 19v-9q0-.475.213-.9t.587-.7l6-4.5q.525-.4 1.2-.4t1.2.4l6 4.5q.375.275.588.7T20 10v9q0 .825-.588 1.413T18 21h-3q-.425 0-.712-.288T14 20v-5q0-.425-.288-.712T13 14h-2q-.425 0-.712.288T10 15v5q0 .425-.288.713T9 21H6q-.825 0-1.412-.587T4 19"/></svg></a></li>
+      <li><a href="about.html"     data-label="About"   class="pf-sidenav-link pf-nav-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12q-1.65 0-2.825-1.175T8 8t1.175-2.825T12 4t2.825 1.175T16 8t-1.175 2.825T12 12m-8 6v-.8q0-.85.438-1.562T5.6 14.55q1.55-.775 3.15-1.162T12 13t3.25.388t3.15 1.162q.725.375 1.163 1.088T20 17.2v.8q0 .825-.587 1.413T18 20H6q-.825 0-1.412-.587T4 18"/></svg></a></li>
+      <li><a href="portfolio.html" data-label="Works"   class="pf-sidenav-link active pf-nav-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h8v8H3zm0 10h8v8H3zM13 3h8v8h-8zm0 10h8v8h-8z"/></svg></a></li>
+      <li><a href="contact.html"   data-label="Contact" class="pf-sidenav-link pf-nav-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2m0 2v.01L12 13L20 6.01V6H4m0 12h16V8.99l-8 6.92l-8-6.92z"/></svg></a></li>
+    </ul>
+  </nav>
 
+  <script src="js/jquery.min.js"></script>
+  <script src="js/aos.js"></script>
   <script>
+    window.addEventListener('scroll', function() {
+      document.getElementById('pf-nav').classList.toggle('pf-nav-scrolled', window.scrollY > 50);
+    });
+
+    document.getElementById('pf-hamburger').addEventListener('click', function() {
+      this.classList.toggle('active');
+      document.getElementById('pf-nav-links').classList.toggle('open');
+    });
+
+    // 페이지 전환
+    function navigateTo(url) {
+      document.body.classList.add('pf-page-exit');
+      setTimeout(function() { window.location.href = url; }, 350);
+    }
+    document.querySelectorAll('.pf-nav-item').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        var href = this.getAttribute('href');
+        if (href && !href.startsWith('#') && !href.startsWith('http') && !href.startsWith('mailto')) {
+          e.preventDefault();
+          navigateTo(href);
+        }
+      });
+    });
+
+    // PDF 로드
     var params = new URLSearchParams(window.location.search);
     var id = params.get('id');
 
     if (id) {
       var pdfPath = id + '.pdf';
-      document.getElementById('pdf-id-label').textContent = '#' + id;
       document.title = '오승준 | 포트폴리오 #' + id;
-
-      var frame = document.getElementById('pdf-frame');
-      frame.src = pdfPath;
-
-      // PDF를 불러오지 못한 경우 안내 메시지 표시
-      frame.addEventListener('error', function() {
-        document.getElementById('pdf-canvas').style.display = 'none';
-        document.getElementById('pdf-missing').style.display = 'flex';
-        document.getElementById('pdf-missing-name').textContent = pdfPath;
-      });
+      document.getElementById('pdf-frame').src = pdfPath;
     } else {
-      document.getElementById('pdf-canvas').style.display = 'none';
+      document.getElementById('pdf-frame').style.display = 'none';
       document.getElementById('pdf-missing').style.display = 'flex';
       document.getElementById('pdf-missing-name').textContent = 'id 파라미터가 없습니다.';
     }
   </script>
 
+  <footer class="pf-footer">
+    <p>2026 &copy; Oh Seung Jun. All rights reserved.</p>
+  </footer>
 </body>
 </html>
