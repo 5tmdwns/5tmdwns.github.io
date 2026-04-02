@@ -1947,16 +1947,20 @@ body.pf-page-exit {
 
   /* 타임라인 */
   .pf-timeline { padding-left: 10pt !important; }
-  .pf-timeline-item { margin-bottom: 6pt !important; position: relative !important; }
-  .pf-timeline-dot { background: #4BAEE8 !important; width: 6pt !important; height: 6pt !important; border-radius: 50% !important; position: absolute !important; left: -10pt !important; top: 3pt !important; }
-  .pf-timeline-date { color: #888 !important; font-size: 7pt !important; display: block !important; margin-bottom: 1pt !important; }
-  .pf-timeline-content h3 { color: #111 !important; font-size: 9pt !important; margin-bottom: 1pt !important; }
-  .pf-timeline-content p { color: #555 !important; font-size: 8pt !important; margin: 0 !important; }
+  .pf-timeline-item { margin-bottom: 3pt !important; position: relative !important; }
+  .pf-timeline-dot { background: #4BAEE8 !important; width: 5pt !important; height: 5pt !important; border-radius: 50% !important; position: absolute !important; left: -10pt !important; top: 3pt !important; }
+  .pf-timeline-content { padding: 4pt 7pt !important; border-radius: 4pt !important; box-shadow: none !important; border: 0.5pt solid #ddd !important; }
+  .pf-timeline-date { color: #888 !important; font-size: 6.5pt !important; display: block !important; margin-bottom: 1pt !important; }
+  .pf-timeline-content h3 { color: #111 !important; font-size: 8pt !important; margin-bottom: 0 !important; }
+  .pf-timeline-content p { color: #555 !important; font-size: 7pt !important; margin: 0 !important; }
 
   /* Interest */
-  .pf-traits { padding-left: 10pt !important; }
-  .pf-traits li { font-size: 7.5pt !important; color: #333 !important; margin-bottom: 4pt !important; line-height: 1.5 !important; }
+  .pf-traits { padding-left: 10pt !important; margin: 0 !important; }
+  .pf-traits li { font-size: 7pt !important; color: #333 !important; margin-bottom: 3pt !important; line-height: 1.4 !important; }
   .pf-traits strong { color: #111 !important; }
+
+  /* 탭 여백 축소 */
+  .pf-tab-pane { margin-bottom: 4pt !important; }
 
   /* 색상 강제 출력 */
   * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
