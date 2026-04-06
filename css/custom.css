@@ -614,6 +614,14 @@ img { max-width: 100%; }
   object-fit: contain;
 }
 
+.pf-skill-card.pf-skill-card-wide.pf-skill-card-wide-sm img {
+  width: 46px !important;
+  height: 46px !important;
+  box-shadow: none;
+  border-radius: 6px;
+  padding: 2px;
+}
+
 .pf-skill-card-left .pf-skill-name {
   font-size: 0.72rem !important;
   font-weight: 700;
