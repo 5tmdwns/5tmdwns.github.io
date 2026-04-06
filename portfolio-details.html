@@ -31,12 +31,12 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 12px;
+      gap: 0;
     }
     .pf-pdf-pages canvas {
       display: block;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.5);
-      border-radius: 2px;
+      width: 100% !important;
+      height: auto !important;
     }
     .pf-pdf-missing {
       display: flex;
@@ -149,8 +149,7 @@
       container.innerHTML = '';
 
       var availW  = container.offsetWidth;
-      var availH  = window.innerHeight - 160;
-      var QUALITY = 4; // 표시 크기 대비 렌더 배율 (클수록 선명)
+      var QUALITY = 3; // 표시 크기 대비 렌더 배율 (클수록 선명)
 
       var chain = Promise.resolve();
       for (var i = 1; i <= pdf.numPages; i++) {
@@ -158,11 +157,7 @@
           chain = chain.then(function() {
             return pdf.getPage(n).then(function(page) {
               var vp1      = page.getViewport({ scale: 1 });
-              var fitScale = Math.min(availW / vp1.width, availH / vp1.height);
-
-              // 화면 표시 크기 (CSS px)
-              var dispW = Math.round(vp1.width  * fitScale);
-              var dispH = Math.round(vp1.height * fitScale);
+              var fitScale = availW / vp1.width;
 
               // 실제 렌더는 QUALITY배 고해상도
               var vp = page.getViewport({ scale: fitScale * QUALITY });
@@ -170,8 +165,6 @@
               var canvas = document.createElement('canvas');
               canvas.width  = vp.width;
               canvas.height = vp.height;
-              canvas.style.width  = dispW + 'px';
-              canvas.style.height = dispH + 'px';
               container.appendChild(canvas);
               return page.render({ canvasContext: canvas.getContext('2d'), viewport: vp }).promise;
             });
