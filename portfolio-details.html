@@ -203,6 +203,16 @@
       }, 200);
     });
 
+    // devicePixelRatio 변화 감지 (Ctrl+스크롤 줌)
+    function watchDPR() {
+      window.matchMedia('(resolution: ' + window.devicePixelRatio + 'dppx)')
+        .addEventListener('change', function() {
+          if (currentPdf) renderPdf(currentPdf);
+          watchDPR();
+        }, { once: true });
+    }
+    watchDPR();
+
     if (id) {
       document.title = '오승준 | 포트폴리오';
 
