@@ -35,8 +35,6 @@
     }
     .pf-pdf-pages canvas {
       display: block;
-      width: 100% !important;
-      height: auto !important;
     }
     .pf-pdf-missing {
       display: flex;
@@ -149,7 +147,7 @@
       container.innerHTML = '';
 
       var availW  = container.offsetWidth;
-      var QUALITY = 3; // 표시 크기 대비 렌더 배율 (클수록 선명)
+      var QUALITY = 2; // 표시 크기 대비 렌더 배율 (클수록 선명)
 
       var chain = Promise.resolve();
       for (var i = 1; i <= pdf.numPages; i++) {
@@ -159,12 +157,17 @@
               var vp1      = page.getViewport({ scale: 1 });
               var fitScale = availW / vp1.width;
 
+              var dispW = availW;
+              var dispH = Math.round(vp1.height * fitScale);
+
               // 실제 렌더는 QUALITY배 고해상도
               var vp = page.getViewport({ scale: fitScale * QUALITY });
 
               var canvas = document.createElement('canvas');
               canvas.width  = vp.width;
               canvas.height = vp.height;
+              canvas.style.width  = dispW + 'px';
+              canvas.style.height = dispH + 'px';
               container.appendChild(canvas);
               return page.render({ canvasContext: canvas.getContext('2d'), viewport: vp }).promise;
             });
@@ -203,15 +206,6 @@
       }, 200);
     });
 
-    // devicePixelRatio 변화 감지 (Ctrl+스크롤 줌)
-    function watchDPR() {
-      window.matchMedia('(resolution: ' + window.devicePixelRatio + 'dppx)')
-        .addEventListener('change', function() {
-          if (currentPdf) renderPdf(currentPdf);
-          watchDPR();
-        }, { once: true });
-    }
-    watchDPR();
 
     if (id) {
       document.title = '오승준 | 포트폴리오';
