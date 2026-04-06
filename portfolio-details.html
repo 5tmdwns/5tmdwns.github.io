@@ -213,11 +213,11 @@
     if (id) {
       document.title = '오승준 | 포트폴리오 #' + id;
 
-      tryLoad(id + '-1.pdf').then(function(first) {
+      tryLoad('portfolio/' + id + '-1.pdf').then(function(first) {
         if (first) {
           var pdfs = [first];
           (function tryNext(n) {
-            tryLoad(id + '-' + n + '.pdf').then(function(pdf) {
+            tryLoad('portfolio/' + id + '-' + n + '.pdf').then(function(pdf) {
               if (pdf) {
                 pdfs.push(pdf);
                 tryNext(n + 1);
@@ -228,7 +228,7 @@
             });
           })(2);
         } else {
-          tryLoad(id + '.pdf').then(function(pdf) {
+          tryLoad('portfolio/' + id + '.pdf').then(function(pdf) {
             if (pdf) {
               renderPdf(pdf);
             } else {
