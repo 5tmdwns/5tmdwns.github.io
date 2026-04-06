@@ -130,14 +130,14 @@
       // nav 높이 명시
       s(nav, { 'height':'12mm', 'max-height':'12mm', 'overflow':'hidden' });
 
-      // PPT 16:9: 190.5mm - 상하여백(8mm*2) - nav(12mm) = 162.5mm, 여유 4.5mm 빼서 158mm
+      // A4 가로: 210mm - 상하여백(8mm*2) - nav(12mm) = 182mm, 여유 6mm 빼서 176mm
       // contain:strict → Chrome 페이지 분할 엔진이 hero 내부 오버플로를 별도 페이지로 만들지 않음
-      s(hero,  { 'min-height':'0', 'height':'158mm', 'max-height':'158mm', 'overflow':'hidden', 'padding':'0', 'contain':'strict' });
-      s(shape, { 'height':'158mm', 'max-height':'158mm', 'overflow':'hidden' });
+      s(hero,  { 'min-height':'0', 'height':'176mm', 'max-height':'176mm', 'overflow':'hidden', 'padding':'0', 'contain':'strict' });
+      s(shape, { 'height':'176mm', 'max-height':'176mm', 'overflow':'hidden' });
 
-      // html/body 높이를 콘텐츠 영역(nav 12mm + hero 158mm = 170mm)으로 제한
-      s(body, { 'height':'174mm', 'max-height':'174mm', 'overflow':'hidden', 'margin':'0', 'padding':'0' });
-      s(html, { 'height':'174mm', 'max-height':'174mm', 'overflow':'hidden' });
+      // html/body 높이를 콘텐츠 영역(nav 12mm + hero 176mm = 188mm)으로 제한
+      s(body, { 'height':'190mm', 'max-height':'190mm', 'overflow':'hidden', 'margin':'0', 'padding':'0' });
+      s(html, { 'height':'190mm', 'max-height':'190mm', 'overflow':'hidden' });
     });
 
     window.addEventListener('afterprint', function() {
