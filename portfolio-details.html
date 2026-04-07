@@ -36,6 +36,15 @@
     .pf-pdf-pages canvas {
       display: block;
     }
+    .pf-pdf-page-wrap {
+      position: relative;
+      display: block;
+    }
+    .pf-pdf-link-overlay {
+      position: absolute;
+      cursor: pointer;
+      z-index: 10;
+    }
     .pf-pdf-missing {
       display: flex;
       flex-direction: column;
@@ -163,13 +172,55 @@
               // 실제 렌더는 QUALITY배 고해상도
               var vp = page.getViewport({ scale: fitScale * QUALITY });
 
+              // 캔버스를 감싸는 래퍼 (링크 오버레이 기준점)
+              var wrapper = document.createElement('div');
+              wrapper.className = 'pf-pdf-page-wrap';
+              wrapper.style.width  = dispW + 'px';
+              wrapper.style.height = dispH + 'px';
+              container.appendChild(wrapper);
+
               var canvas = document.createElement('canvas');
               canvas.width  = vp.width;
               canvas.height = vp.height;
               canvas.style.width  = dispW + 'px';
               canvas.style.height = dispH + 'px';
-              container.appendChild(canvas);
-              return page.render({ canvasContext: canvas.getContext('2d'), viewport: vp }).promise;
+              wrapper.appendChild(canvas);
+
+              var renderPromise = page.render({ canvasContext: canvas.getContext('2d'), viewport: vp }).promise;
+
+              // 링크 어노테이션 오버레이 추가
+              page.getAnnotations().then(function(annotations) {
+                annotations.forEach(function(ann) {
+                  if (ann.subtype !== 'Link') return;
+
+                  var rect = vp.convertToViewportRectangle(ann.rect);
+                  var left   = Math.min(rect[0], rect[2]) / QUALITY;
+                  var top    = Math.min(rect[1], rect[3]) / QUALITY;
+                  var width  = Math.abs(rect[2] - rect[0]) / QUALITY;
+                  var height = Math.abs(rect[3] - rect[1]) / QUALITY;
+
+                  var a = document.createElement('a');
+                  a.className = 'pf-pdf-link-overlay';
+                  a.style.left   = left   + 'px';
+                  a.style.top    = top    + 'px';
+                  a.style.width  = width  + 'px';
+                  a.style.height = height + 'px';
+
+                  if (ann.url) {
+                    a.href   = ann.url;
+                    a.target = '_blank';
+                    a.rel    = 'noopener';
+                  } else if (ann.unsafeUrl) {
+                    a.href   = ann.unsafeUrl;
+                    a.target = '_blank';
+                    a.rel    = 'noopener';
+                  }
+
+                  wrapper.appendChild(a);
+                });
+              });
+
+              return renderPromise;
             });
           });
         })(i);
