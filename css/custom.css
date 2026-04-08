@@ -1215,33 +1215,6 @@ body.pf-page-exit {
   display: block;
 }
 
-/* Field badge (top-left of each work card) */
-.pf-work-field {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  z-index: 3;
-  font-size: 0.62rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  padding: 3px 8px;
-  border-radius: 20px;
-  pointer-events: none;
-  user-select: none;
-}
-.pf-field-dd {
-  background: rgba(99, 102, 241, 0.85);
-  color: #fff;
-}
-.pf-field-esw {
-  background: rgba(245, 158, 11, 0.85);
-  color: #fff;
-}
-.pf-field-sw {
-  background: rgba(16, 185, 129, 0.85);
-  color: #fff;
-}
-
 .pf-work-overlay {
   position: absolute;
   inset: 0;
